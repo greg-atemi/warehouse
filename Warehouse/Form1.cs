@@ -21,5 +21,10 @@ namespace Warehouse
         {
 
         }
+
+        private void btn_store_Click(object sender, EventArgs e)
+        {
+            // code to save a good to the database
+        }
     }
 }
