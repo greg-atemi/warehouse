@@ -16,8 +16,7 @@ namespace Warehouse
 
             SQLiteConnection.CreateFile("warehouse_database.sqlite3");
 
-            Db myDb = new();
-            myDb.Connection.Open();
+            Connection.Open();
 
             string[] commandTexts =
             {
@@ -28,14 +27,14 @@ namespace Warehouse
 
             foreach (var commandString in commandTexts)
             {
-                var command = new SQLiteCommand(myDb.Connection)
+                var command = new SQLiteCommand(Connection)
                 {
                     CommandText = commandString
                 };
                 command.ExecuteNonQuery();
             }
             
-            myDb.Connection.Close();
+            Connection.Close();
         }
     }
 }
