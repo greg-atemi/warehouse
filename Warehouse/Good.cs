@@ -6,21 +6,11 @@ namespace Warehouse
 {
     public class Good : IDatabase
     {
-        public Good(int id, string name, string descriptions, DateTime receivedDate, DateTime releasedDate, int clientId,
-            int cubeId)
+        public Good(string name, string descriptions, DateTime receivedDate, DateTime releasedDate,
+            int clientId,
+            int cubeId, int id = 0)
         {
             Id = id;
-            Name = name;
-            Description = descriptions;
-            ReceivedDate = receivedDate;
-            ReleasedDate = releasedDate;
-            ClientId = clientId;
-            CubeId = cubeId;
-        }
-
-        public Good(string name, string descriptions, DateTime receivedDate, DateTime releasedDate, int clientId,
-            int cubeId)
-        {
             Name = name;
             Description = descriptions;
             ReceivedDate = receivedDate;
@@ -57,16 +47,17 @@ namespace Warehouse
             command.Parameters.AddWithValue("@id", id);
             var reader = command.ExecuteReader();
 
-            Good temp = null;
-
-            while (reader.Read())
+            if (reader.Read())
             {
-                temp = new Good(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), new DateTime(reader.GetInt64(5)),
-                    new DateTime(reader.GetInt64(6)), reader.GetInt32(3), reader.GetInt32(4));
+                var good = new Good(reader.GetString(1), reader.GetString(2),
+                    new DateTime(reader.GetInt64(5)),
+                    new DateTime(reader.GetInt64(6)), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(0));
+                myDb.Connection.Close();
+                return good;
             }
 
             myDb.Connection.Close();
-            return temp;
+            throw new Exception("No good with that ID");
         }
 
 
@@ -85,8 +76,9 @@ namespace Warehouse
 
             while (reader.Read())
             {
-                var temp = new Good(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), new DateTime(reader.GetInt64(5)),
-                    new DateTime(reader.GetInt64(6)), reader.GetInt32(3), reader.GetInt32(4));
+                var temp = new Good(reader.GetString(1), reader.GetString(2),
+                    new DateTime(reader.GetInt64(5)),
+                    new DateTime(reader.GetInt64(6)), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(0));
 
                 goods.Add(temp);
             }

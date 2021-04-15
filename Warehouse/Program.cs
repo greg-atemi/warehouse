@@ -29,8 +29,8 @@ namespace Warehouse
             // Application.Run(new Good_record_form());
 
 
-            // var nw = new Client("Canary", "mchemweno27@gmail.com");
-            // nw.Save();
+            var nw = new Client("Canary", "mchemweno27@gmail.com");
+            nw.Save();
 
             // var nw = new Good("TV", "Electronic", DateTime.Now.Date, DateTime.Now.Date, 2,2);
             // nw.Save();
