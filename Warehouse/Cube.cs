@@ -28,13 +28,6 @@ namespace Warehouse
 			set => _occupied = value;
 		}
 
-		public Cube(int id=0)
-		{
-			_id = id;
-			_name = "";
-			_occupied = false;
-		}
-
 		public Cube(string name, bool occupied, int id = 0)
 		{
 			_id = id;
@@ -68,8 +61,7 @@ namespace Warehouse
 		public static Cube GetWithId(int id)
 		{
 			Db myDb = new Db();
-			Cube tempCube = new Cube();
-			
+
 			myDb.Connection.Open();
 		
 			var command = new SQLiteCommand(myDb.Connection)
@@ -79,18 +71,22 @@ namespace Warehouse
 			command.Parameters.AddWithValue("@id", id);
 			var reader = command.ExecuteReader();
 				
-			while (reader.Read())
+			if (reader.Read())
 			{
-				tempCube.Id = reader.GetInt32(0);
-				tempCube.Name = reader.GetString(1);
-				tempCube.Occupied = reader.GetInt32(2) == 1;
+				var tempCube = new Cube(reader.GetString(1), reader.GetInt32(2) == 1, reader.GetInt32(0));
+				myDb.Connection.Close();
+				return tempCube;
 			}
 			myDb.Connection.Close();
-			return tempCube;
+			throw new Exception("Cube doesn't not exist");
 		}
 
 		public void Save()
 		{
+			if (_id == 0)
+			{
+				throw new Exception("Cube does not exist");
+			}
 			Db myDb = new Db();
 			myDb.Connection.Open();
 			var command = new SQLiteCommand(myDb.Connection)
@@ -110,6 +106,10 @@ namespace Warehouse
 
 		public void Update()
 		{
+			if (_id == 0)
+			{
+				throw new Exception("Cube does not exist");
+			}
 			Db myDb = new Db();
 			myDb.Connection.Open();
 
@@ -132,6 +132,10 @@ namespace Warehouse
 
 		public void Delete()
 		{
+			if (_id == 0)
+			{
+				throw new Exception("Cube does not exist");
+			}
 			Db myDb = new Db();
 			myDb.Connection.Open();
 

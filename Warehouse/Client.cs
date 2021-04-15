@@ -6,18 +6,10 @@ namespace Warehouse
 {
 	public class Client: IDatabase
 	{
-		private int _id;
 		private string _email, _name;
-
-		public Client()
+		
+		public Client(string name, string email)
 		{
-			_id = 0;
-			_name = "";
-			_email = "";
-		}
-		public Client(string name, string email, int id = 0)
-		{
-			_id = id;
 			_name = name;
 			_email = email;
 		}
@@ -32,12 +24,6 @@ namespace Warehouse
 		{
 			get => _email;
 			set => _email = value;
-		}
-
-		public int Id
-		{
-			get => _id;
-			set => _id = value;
 		}
 
 		public static List<Client> GetAll()
@@ -56,7 +42,7 @@ namespace Warehouse
 			while (reader.Read())
 			{
 				Client tempClient;
-				tempClient = new Client(reader.GetString(1), reader.GetString(2), reader.GetInt32(0));
+				tempClient = new Client(reader.GetString(1), reader.GetString(0));
 				clients.Add(tempClient);
 			}
 			myDb.Connection.Close();
@@ -82,28 +68,30 @@ namespace Warehouse
 			myDb.Connection.Close();
 		}
 
-		public static Client GetWithId(int id)
+		public static Client GetWithEmail(string email)
 		{
 			Db myDb = new Db();
-			Client tempClient = new Client();
-			
+
 			myDb.Connection.Open();
 		
 			var command = new SQLiteCommand(myDb.Connection)
 			{
-				CommandText = "SELECT * FROM Client WHERE id=@id"
+				CommandText = "SELECT * FROM Client WHERE email=@email"
 			};
-			command.Parameters.AddWithValue("@id", id);
+			
+			command.Parameters.AddWithValue("@email", email);
+			
 			var reader = command.ExecuteReader();
-				
-			while (reader.Read())
+			
+			if (reader.Read())
 			{
-				tempClient.Id = reader.GetInt32(0);
-				tempClient.Name = reader.GetString(1);
-				tempClient.Email = reader.GetString(2);
+				var tempClient = new Client(reader.GetString(1), reader.GetString(0));
+				myDb.Connection.Close();
+				return tempClient;
 			}
+
 			myDb.Connection.Close();
-			return tempClient;
+			throw new Exception("client id not found.");
 		}
 
 		public void Update()
@@ -113,12 +101,11 @@ namespace Warehouse
 
 			var command = new SQLiteCommand(myDb.Connection)
 			{
-				CommandText = "UPDATE Client SET name=@name, email=@email WHERE id=@id"
+				CommandText = "UPDATE Client SET name=@name, email=@email WHERE email=@email"
 			};
 
 			command.Parameters.AddWithValue("@name", _name);
 			command.Parameters.AddWithValue("@email", _email);
-			command.Parameters.AddWithValue("@id", _id);
 			command.Prepare();
 
 			command.ExecuteNonQuery();
@@ -134,10 +121,10 @@ namespace Warehouse
 
 			var command = new SQLiteCommand(myDb.Connection)
 			{
-				CommandText = "DELETE FROM Client WHERE id=@id"
+				CommandText = "DELETE FROM Client WHERE email=@email"
 			};
 			
-			command.Parameters.AddWithValue("@id", _id);
+			command.Parameters.AddWithValue("@email", _email);
 			command.Prepare();
 
 			command.ExecuteNonQuery();
