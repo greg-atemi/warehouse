@@ -162,12 +162,7 @@ namespace Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(487, 404);
-=======
-            this.ClientSize = new System.Drawing.Size(609, 306);
-            this.Controls.Add(this.log);
->>>>>>> c62ffc9cce519fbab0b8bab01cc276d8441918c7
+            this.ClientSize = new System.Drawing.Size(483, 407);
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);
@@ -185,6 +180,7 @@ namespace Warehouse
             this.Load += new System.EventHandler(this.Good_record_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label log;
