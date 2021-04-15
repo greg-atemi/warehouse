@@ -30,31 +30,5 @@ namespace Warehouse
         {
 
         }
-        private void Back(object sender, EventArgs e)
-        {
-            var form = new Good_checkout_form();
-            this.Hide();
-            form.Show();
-        }
-
-        private void name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InputValidator(object sender, KeyPressEventArgs e)
-        {
-            TextBox text;
-            if (sender is TextBox)
-            {
-                text = (TextBox)sender;
-                if (text.Name == name.Name)
-                {
-                    if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)8)
-                        e.Handled = true;
-                }
-            }
-
-        }
     }
 }

@@ -41,6 +41,7 @@ namespace Warehouse
             this.btn_back = new System.Windows.Forms.Button();
             this.cube_id = new System.Windows.Forms.ComboBox();
             this.client_id = new System.Windows.Forms.ComboBox();
+            this.log = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -149,11 +150,24 @@ namespace Warehouse
             this.client_id.Size = new System.Drawing.Size(227, 21);
             this.client_id.TabIndex = 14;
             // 
+            // log
+            // 
+            this.log.Location = new System.Drawing.Point(39, 216);
+            this.log.Name = "log";
+            this.log.Size = new System.Drawing.Size(117, 63);
+            this.log.TabIndex = 15;
+            this.log.Text = "label5";
+            // 
             // Good_record_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(487, 404);
+=======
+            this.ClientSize = new System.Drawing.Size(609, 306);
+            this.Controls.Add(this.log);
+>>>>>>> c62ffc9cce519fbab0b8bab01cc276d8441918c7
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);
@@ -171,8 +185,9 @@ namespace Warehouse
             this.Load += new System.EventHandler(this.Good_record_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Label log;
 
         #endregion
 
