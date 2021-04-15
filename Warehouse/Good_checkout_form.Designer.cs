@@ -82,7 +82,7 @@ namespace Warehouse
             // 
             // btn_release
             // 
-            this.btn_release.Location = new System.Drawing.Point(481, 272);
+            this.btn_release.Location = new System.Drawing.Point(324, 411);
             this.btn_release.Name = "btn_release";
             this.btn_release.Size = new System.Drawing.Size(101, 43);
             this.btn_release.TabIndex = 17;
@@ -160,12 +160,13 @@ namespace Warehouse
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(481, 325);
+            this.btn_back.Location = new System.Drawing.Point(48, 411);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(101, 43);
             this.btn_back.TabIndex = 26;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // label7
             // 
@@ -188,7 +189,7 @@ namespace Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 421);
+            this.ClientSize = new System.Drawing.Size(506, 494);
             this.Controls.Add(this.good_id);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_back);

@@ -15,6 +15,18 @@ namespace Warehouse
         public Good_checkout_form()
         {
             InitializeComponent();
+            btn_back.Click += new EventHandler(this.Back);
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void Back(object sender, EventArgs e)
+        {
+            var form = new Good_record_form();
+            this.Hide();
+            form.Show();
         }
     }
 }

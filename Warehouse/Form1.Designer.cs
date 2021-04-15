@@ -90,12 +90,13 @@ namespace Warehouse
             // 
             // btn_store
             // 
-            this.btn_store.Location = new System.Drawing.Point(464, 184);
+            this.btn_store.Location = new System.Drawing.Point(319, 326);
             this.btn_store.Name = "btn_store";
             this.btn_store.Size = new System.Drawing.Size(101, 43);
             this.btn_store.TabIndex = 5;
             this.btn_store.Text = "Store Good";
             this.btn_store.UseVisualStyleBackColor = true;
+            this.btn_store.Click += new System.EventHandler(this.btn_store_Click);
             // 
             // name
             // 
@@ -103,13 +104,17 @@ namespace Warehouse
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(227, 20);
             this.name.TabIndex = 6;
+            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
             // recieved_date
             // 
+            this.recieved_date.CustomFormat = "";
+            this.recieved_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.recieved_date.Location = new System.Drawing.Point(193, 140);
             this.recieved_date.Name = "recieved_date";
             this.recieved_date.Size = new System.Drawing.Size(227, 20);
             this.recieved_date.TabIndex = 10;
+            this.recieved_date.Value = new System.DateTime(2021, 4, 15, 16, 10, 20, 0);
             // 
             // description
             // 
@@ -121,7 +126,7 @@ namespace Warehouse
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(464, 237);
+            this.btn_back.Location = new System.Drawing.Point(43, 326);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(101, 43);
             this.btn_back.TabIndex = 12;
@@ -148,7 +153,7 @@ namespace Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 306);
+            this.ClientSize = new System.Drawing.Size(487, 404);
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);
