@@ -23,18 +23,19 @@ namespace Warehouse
         static void Main(string[] args)
         {
             AttachConsole(ATTACH_PARENT_PROCESS);
-            
+
             // Application.EnableVisualStyles();
             // Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new Good_record_form());
 
 
-            var nw = new Client("Canary", "mchemweno27@gmail.com");
-            nw.Save();
-
-            // var nw = new Good("TV", "Electronic", DateTime.Now.Date, DateTime.Now.Date, 2,2);
+            // var nw = new Cube("Cube1", false);
             // nw.Save();
 
+            // var nw = new Good("TV", "Electronic", DateTime.Now.Date, DateTime.Now.Date, "mchemweno27@gmail.com", 2);
+            // nw.Save();
+
+            // Console.WriteLine(DateTime.Now.Ticks);
         }
     }
 }

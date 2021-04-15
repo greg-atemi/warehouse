@@ -7,7 +7,7 @@ namespace Warehouse
     public class Good : IDatabase
     {
         public Good(string name, string descriptions, DateTime receivedDate, DateTime releasedDate,
-            int clientId,
+            String clientId,
             int cubeId, int id = 0)
         {
             Id = id;
@@ -25,7 +25,7 @@ namespace Warehouse
 
         public DateTime ReleasedDate { get; set; }
 
-        public int ClientId { get; set; }
+        public String ClientId { get; set; }
 
         public int CubeId { get; set; }
 
@@ -51,7 +51,7 @@ namespace Warehouse
             {
                 var good = new Good(reader.GetString(1), reader.GetString(2),
                     new DateTime(reader.GetInt64(5)),
-                    new DateTime(reader.GetInt64(6)), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(0));
+                    new DateTime(reader.GetInt64(6)), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(0));
                 myDb.Connection.Close();
                 return good;
             }
@@ -78,7 +78,7 @@ namespace Warehouse
             {
                 var temp = new Good(reader.GetString(1), reader.GetString(2),
                     new DateTime(reader.GetInt64(5)),
-                    new DateTime(reader.GetInt64(6)), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(0));
+                    new DateTime(reader.GetInt64(6)), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(0));
 
                 goods.Add(temp);
             }
