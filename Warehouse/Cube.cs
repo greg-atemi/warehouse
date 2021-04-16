@@ -6,33 +6,17 @@ namespace Warehouse
 {
 	public class Cube: IDatabase
 	{
-		private int _id;
-		private string _name;
-		private bool _occupied;
+		public int Id { get; set; }
 
-		public int Id
-		{
-			get => _id;
-			set => _id = value;
-		}
+		public string Name { get; set; }
 
-		public string Name
-		{
-			get => _name;
-			set => _name = value;
-		}
-
-		public bool Occupied
-		{
-			get => _occupied;
-			set => _occupied = value;
-		}
+		public bool Occupied { get; set; }
 
 		public Cube(string name, bool occupied, int id = 0)
 		{
-			_id = id;
-			_name = name;
-			_occupied = occupied;
+			Id = id;
+			Name = name;
+			Occupied = occupied;
 		}
 		
 		public static List<Cube> GetAll()
@@ -83,7 +67,7 @@ namespace Warehouse
 
 		public void Save()
 		{
-			if (_id == 0)
+			if (Id == 0)
 			{
 				throw new Exception("Cube does not exist");
 			}
@@ -94,8 +78,8 @@ namespace Warehouse
 				CommandText = "INSERT INTO Cube(name, occupied) VALUES(@name, @occupied)"
 			};
 
-			command.Parameters.AddWithValue("@name", _name);
-			command.Parameters.AddWithValue("@occupied", _occupied ? 1:0);
+			command.Parameters.AddWithValue("@name", Name);
+			command.Parameters.AddWithValue("@occupied", Occupied ? 1:0);
 			command.Prepare();
 
 			command.ExecuteNonQuery();
@@ -106,7 +90,7 @@ namespace Warehouse
 
 		public void Update()
 		{
-			if (_id == 0)
+			if (Id == 0)
 			{
 				throw new Exception("Cube does not exist");
 			}
@@ -118,10 +102,10 @@ namespace Warehouse
 				CommandText = "UPDATE Cube SET name=@name, occupied=@occupied WHERE id=@id"
 			};
 
-			int occupied = _occupied ? 1 : 0;
-			command.Parameters.AddWithValue("@name", _name);
+			int occupied = Occupied ? 1 : 0;
+			command.Parameters.AddWithValue("@name", Name);
 			command.Parameters.AddWithValue("@occupied", occupied);
-			command.Parameters.AddWithValue("@id", _id);
+			command.Parameters.AddWithValue("@id", Id);
 			command.Prepare();
 
 			command.ExecuteNonQuery();
@@ -132,7 +116,7 @@ namespace Warehouse
 
 		public void Delete()
 		{
-			if (_id == 0)
+			if (Id == 0)
 			{
 				throw new Exception("Cube does not exist");
 			}
@@ -144,7 +128,7 @@ namespace Warehouse
 				CommandText = "DELETE FROM Cube WHERE id=@id"
 			};
 			
-			command.Parameters.AddWithValue("@id", _id);
+			command.Parameters.AddWithValue("@id", Id);
 			command.Prepare();
 
 			command.ExecuteNonQuery();
