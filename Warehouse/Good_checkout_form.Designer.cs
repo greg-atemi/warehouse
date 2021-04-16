@@ -29,6 +29,7 @@ namespace Warehouse
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.description = new System.Windows.Forms.RichTextBox();
             this.client_id = new System.Windows.Forms.TextBox();
             this.cube_id = new System.Windows.Forms.TextBox();
@@ -45,6 +46,8 @@ namespace Warehouse
             this.btn_back = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.good_id = new System.Windows.Forms.ComboBox();
+            this.Err = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).BeginInit();
             this.SuspendLayout();
             // 
             // description
@@ -88,6 +91,7 @@ namespace Warehouse
             this.btn_release.TabIndex = 17;
             this.btn_release.Text = "Release Good";
             this.btn_release.UseVisualStyleBackColor = true;
+            this.btn_release.Click += new System.EventHandler(this.btn_release_Click);
             // 
             // label6
             // 
@@ -130,9 +134,9 @@ namespace Warehouse
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(45, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Name";
+            this.label1.Text = "Good Name";
             // 
             // released_date
             // 
@@ -184,6 +188,11 @@ namespace Warehouse
             this.good_id.Name = "good_id";
             this.good_id.Size = new System.Drawing.Size(227, 21);
             this.good_id.TabIndex = 28;
+            this.good_id.SelectedIndexChanged += new System.EventHandler(this.good_id_SelectedIndexChanged);
+            // 
+            // Err
+            // 
+            this.Err.ContainerControl = this;
             // 
             // Good_checkout_form
             // 
@@ -208,6 +217,7 @@ namespace Warehouse
             this.Controls.Add(this.label1);
             this.Name = "Good_checkout_form";
             this.Text = "Good_checkout_form";
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +241,6 @@ namespace Warehouse
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox good_id;
+        private System.Windows.Forms.ErrorProvider Err;
     }
 }

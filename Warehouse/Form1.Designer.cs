@@ -29,6 +29,7 @@ namespace Warehouse
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@ namespace Warehouse
             this.cube_id = new System.Windows.Forms.ComboBox();
             this.client_id = new System.Windows.Forms.ComboBox();
             this.log = new System.Windows.Forms.Label();
+            this.Err = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,9 +52,9 @@ namespace Warehouse
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(40, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.label1.Text = "Good Name";
             // 
             // label2
             // 
@@ -158,11 +161,15 @@ namespace Warehouse
             this.log.TabIndex = 15;
             this.log.Text = "label5";
             // 
+            // Err
+            // 
+            this.Err.ContainerControl = this;
+            // 
             // Good_record_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 407);
+            this.ClientSize = new System.Drawing.Size(483, 398);
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);
@@ -178,6 +185,7 @@ namespace Warehouse
             this.Name = "Good_record_form";
             this.Text = "Good_record_form";
             this.Load += new System.EventHandler(this.Good_record_form_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +207,7 @@ namespace Warehouse
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.ComboBox cube_id;
         private System.Windows.Forms.ComboBox client_id;
+        private System.Windows.Forms.ErrorProvider Err;
     }
 }
 

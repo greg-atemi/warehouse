@@ -15,8 +15,11 @@ namespace Warehouse
         public Good_record_form()
         {
             InitializeComponent();
+            cube_id.DropDownStyle = ComboBoxStyle.DropDownList;
+            client_id.DropDownStyle = ComboBoxStyle.DropDownList;
             recieved_date.Format = DateTimePickerFormat.Custom;
             recieved_date.CustomFormat = "dd MM yyyy hh:mm";
+            recieved_date.MaxDate = DateTime.Now;
             btn_back.Click += new EventHandler(this.Back);
             name.KeyPress += new KeyPressEventHandler(this.InputValidator);
         }
@@ -28,7 +31,22 @@ namespace Warehouse
 
         private void btn_store_Click(object sender, EventArgs e)
         {
-
+            if (name.Text == string.Empty)
+                Err.SetError(name, "Name cannot be null!!");
+            else
+                Err.SetError(name, "");
+            if (cube_id.Text == string.Empty)
+                Err.SetError(cube_id, "Cube ID cannot be null!!");
+            else
+                Err.SetError(cube_id, "");
+            if (client_id.Text == string.Empty)
+                Err.SetError(client_id, "Client ID cannot be null!!");
+            else
+                Err.SetError(client_id, "");
+            if (recieved_date.Text == string.Empty)
+                Err.SetError(recieved_date, "Received date cannot be null!!");
+            else
+                Err.SetError(recieved_date, "");
         }
         private void Back(object sender, EventArgs e)
         {
@@ -50,7 +68,11 @@ namespace Warehouse
                 text = (TextBox)sender;
                 if (text.Name == name.Name)
                 {
-                    if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)8)
+                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
+                        e.Handled = false;
+                    else if (e.KeyChar == ' ')
+                        e.Handled = false;
+                    else
                         e.Handled = true;
                 }
             }
