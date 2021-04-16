@@ -90,15 +90,24 @@ namespace Warehouse
         private void btn_store_Click_1(object sender, EventArgs e)
         {
 
-            var cubeId = cube.Text.Split('.')[0];
-            var good = new Good(name.Text,description.Text,  recieved_date.Value, client_email.Text, int.Parse(cubeId));
-            good.Save();
-            name.Text = "";
-            cube.SelectedIndex = -1;
-            cube.SelectedIndex = -1;
-            client_email.SelectedIndex = -1;
-            recieved_date.Text = "";
-            description.Text = "";
+            try
+            {
+                var cubeId = cube.Text.Split('.')[0];
+                var good = new Good(name.Text,description.Text,  recieved_date.Value, client_email.Text, int.Parse(cubeId));
+                good.Save();
+                MessageBox.Show("Good Created.");
+                name.Text = "";
+                cube.SelectedIndex = -1;
+                cube.SelectedIndex = -1;
+                client_email.SelectedIndex = -1;
+                recieved_date.Text = "";
+                description.Text = "";
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
         }
     }
 }

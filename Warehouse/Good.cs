@@ -6,7 +6,6 @@ namespace Warehouse
 {
     public class Good : IDatabase
     {
-
         public Good(string name, string descriptions, DateTime receivedDate,
             String clientId,
             int cubeId, int id = 0)
@@ -38,10 +37,13 @@ namespace Warehouse
         {
             Db myDb = new Db();
             myDb.Connection.Open();
+
+            try
+            {
                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM Goods WHERE id=@id", myDb.Connection))
                 {
-                cmd.Parameters.AddWithValue("@id", id);
-                using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
                         if (rdr.Read())
                         {
@@ -54,7 +56,12 @@ namespace Warehouse
                         throw new Exception("No good with that ID");
                     }
                 }
-
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
 
@@ -87,67 +94,96 @@ namespace Warehouse
         public void Save()
         {
             var myDb = new Db();
-            myDb.Connection.Open();
-            var command = new SQLiteCommand(myDb.Connection)
+
+            try
             {
-                CommandText =
-                    "INSERT INTO Goods(name, description, client_id, cube_id, received_date, released_date) VALUES(@name, @description, @client_id, @cube_id, @received_date, @released_date)"
-            };
+                myDb.Connection.Open();
+                var command = new SQLiteCommand(myDb.Connection)
+                {
+                    CommandText =
+                        "INSERT INTO Goods(name, description, client_id, cube_id, received_date, released_date) VALUES(@name, @description, @client_id, @cube_id, @received_date, @released_date)"
+                };
 
-            command.Parameters.AddWithValue("@name", Name);
-            command.Parameters.AddWithValue("@description", Description);
-            command.Parameters.AddWithValue("@client_id", ClientId);
-            command.Parameters.AddWithValue("@cube_id", CubeId);
-            command.Parameters.AddWithValue("@received_date", ReceivedDate.Ticks);
-            command.Parameters.AddWithValue("@released_date", ReleasedDate.Ticks);
-            command.Prepare();
+                command.Parameters.AddWithValue("@name", Name);
+                command.Parameters.AddWithValue("@description", Description);
+                command.Parameters.AddWithValue("@client_id", ClientId);
+                command.Parameters.AddWithValue("@cube_id", CubeId);
+                command.Parameters.AddWithValue("@received_date", ReceivedDate.Ticks);
+                command.Parameters.AddWithValue("@released_date", ReleasedDate.Ticks);
+                command.Prepare();
 
-            command.ExecuteNonQuery();
-            
-            myDb.Connection.Close();
+                command.ExecuteNonQuery();
+                myDb.Connection.Close();
+                
+            }
+            catch (Exception e)
+            {
+                myDb.Connection.Close();
+                throw;
+            }
         }
 
         public void Update()
         {
             var myDb = new Db();
-            myDb.Connection.Open();
-            var command = new SQLiteCommand(myDb.Connection)
+            try
             {
-                CommandText =
-                    "UPDATE Goods SET name=@name, description=@description, client_id=@client_id, cube_id=@cube_id, received_date=@received_date, released_date=@released_date WHERE id=@id"
-            };
+                myDb.Connection.Open();
+                var command = new SQLiteCommand(myDb.Connection)
+                {
+                    CommandText =
+                        "UPDATE Goods SET name=@name, description=@description, client_id=@client_id, cube_id=@cube_id, received_date=@received_date, released_date=@released_date WHERE id=@id"
+                };
 
-            command.Parameters.AddWithValue("@name", Name);
-            command.Parameters.AddWithValue("@description", Description);
-            command.Parameters.AddWithValue("@client_id", ClientId);
-            command.Parameters.AddWithValue("@cube_id", CubeId);
-            command.Parameters.AddWithValue("@received_date", ReceivedDate.Ticks);
-            command.Parameters.AddWithValue("@released_date", ReleasedDate.Ticks);
-            command.Parameters.AddWithValue("@id", Id);
+                command.Parameters.AddWithValue("@name", Name);
+                command.Parameters.AddWithValue("@description", Description);
+                command.Parameters.AddWithValue("@client_id", ClientId);
+                command.Parameters.AddWithValue("@cube_id", CubeId);
+                command.Parameters.AddWithValue("@received_date", ReceivedDate.Ticks);
+                command.Parameters.AddWithValue("@released_date", ReleasedDate.Ticks);
+                command.Parameters.AddWithValue("@id", Id);
 
-            command.Prepare();
+                command.Prepare();
 
-            command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
-            myDb.Connection.Close();
+                myDb.Connection.Close();
+
+            }
+            catch (Exception e)
+            {
+                myDb.Connection.Close();
+                throw;
+            }
+            
         }
 
         public void Delete()
         {
             Db myDb = new Db();
-            myDb.Connection.Open();
 
-            var command = new SQLiteCommand(myDb.Connection)
+            try
             {
-                CommandText = "DELETE FROM Goods WHERE id=@id"
-            };
+                myDb.Connection.Open();
 
-            command.Parameters.AddWithValue("@id", Id);
-            command.Prepare();
+                var command = new SQLiteCommand(myDb.Connection)
+                {
+                    CommandText = "DELETE FROM Goods WHERE id=@id"
+                };
 
-            command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@id", Id);
+                command.Prepare();
 
-            myDb.Connection.Close();
+                command.ExecuteNonQuery();
+
+                myDb.Connection.Close();
+            }
+            catch (Exception e)
+            {
+                myDb.Connection.Close();
+                throw;
+            }
+            
         }
     }
 }

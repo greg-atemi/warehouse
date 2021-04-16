@@ -63,25 +63,49 @@ namespace Warehouse
         private void btn_update_Click(object sender, EventArgs e)
             {
 
-                var cubeId = cube_id.Text.Split('.')[0];
-                var good = new Good(name.Text,description.Text,  recieved_date.Value, client_email.Text, int.Parse(cubeId));
-                good.Save();
-                name.Text = "";
-                cube_id.SelectedIndex = -1;
-                cube_id.SelectedIndex = -1;
-                client_email.SelectedIndex = -1;
-                recieved_date.Text = "";
-                description.Text = "";
+                try
+                {
+                    var cubeId = cube_id.Text.Split('.')[0];
+                    good.Name = name.Text;
+                    good.CubeId = int.Parse(cubeId);
+                    good.ClientId = client_email.Text;
+                    good.ReceivedDate = recieved_date.Value;
+                    good.Description = description.Text;
+                    good.Update();
+                    MessageBox.Show("Good updated successfully.");
+                    name.Text = "";
+                    cube_id.SelectedIndex = -1;
+                    cube_id.SelectedIndex = -1;
+                    client_email.SelectedIndex = -1;
+                    recieved_date.Text = "";
+                    description.Text = "";
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+
+                
+                
             }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            good = Good.GetWithId(int.Parse(good_id.Text));
-            name.Text = good.Name;
-            cube_id.Text = good.CubeId.ToString();
-            client_email.Text = good.ClientId.ToString();
-            recieved_date.Text = good.ReceivedDate.ToString();
-            description.Text = good.Description;
+
+            try
+            {
+                good = Good.GetWithId(int.Parse(good_id.Text));
+                name.Text = good.Name;
+                cube_id.Text = good.CubeId.ToString();
+                client_email.Text = good.ClientId.ToString();
+                recieved_date.Text = good.ReceivedDate.ToString();
+                description.Text = good.Description;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
         }
     }
     }
