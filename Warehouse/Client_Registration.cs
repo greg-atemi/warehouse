@@ -37,7 +37,7 @@ namespace Warehouse
 
         private void register_Click(object sender, EventArgs e)
         {
-            var newClient = new Client(name.Text, email.Text);
+            var newClient = new Client(name.Text, email.Text, phone.Text);
             newClient.Save();
             //clear form
         }

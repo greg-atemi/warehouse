@@ -33,5 +33,18 @@ namespace Warehouse
             this.Hide();
             form.Show();
         }
+
+        private void get_email_Click(object sender, EventArgs e)
+        {
+            var client = Client.GetWithEmail(email.Text);
+            name.Text = client.Name;
+            phone_number.Text = client.Phone;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var client = new Client(name.Text, email.Text, phone_number.Text);
+            client.Update();
+        }
     }
 }
