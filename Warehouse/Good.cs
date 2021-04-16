@@ -106,8 +106,7 @@ namespace Warehouse
             command.Prepare();
 
             command.ExecuteNonQuery();
-
-            // Console.WriteLine("row inserted");
+            
             myDb.Connection.Close();
         }
 
