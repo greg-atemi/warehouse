@@ -47,53 +47,59 @@ namespace Warehouse
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 35);
+            this.label1.Location = new System.Drawing.Point(60, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 184);
+            this.label2.Location = new System.Drawing.Point(60, 283);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(89, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Description";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 106);
+            this.label3.Location = new System.Drawing.Point(60, 163);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Client ID";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 70);
+            this.label4.Location = new System.Drawing.Point(60, 108);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Cube ID";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 140);
+            this.label6.Location = new System.Drawing.Point(60, 215);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(114, 20);
             this.label6.TabIndex = 4;
             this.label6.Text = "Recieved Date";
             // 
             // btn_store
             // 
-            this.btn_store.Location = new System.Drawing.Point(464, 184);
+            this.btn_store.Location = new System.Drawing.Point(696, 283);
+            this.btn_store.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_store.Name = "btn_store";
-            this.btn_store.Size = new System.Drawing.Size(101, 43);
+            this.btn_store.Size = new System.Drawing.Size(152, 66);
             this.btn_store.TabIndex = 5;
             this.btn_store.Text = "Store Good";
             this.btn_store.UseVisualStyleBackColor = true;
@@ -101,64 +107,72 @@ namespace Warehouse
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(193, 35);
+            this.name.Location = new System.Drawing.Point(290, 54);
+            this.name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(227, 20);
+            this.name.Size = new System.Drawing.Size(338, 26);
             this.name.TabIndex = 6;
             // 
             // recieved_date
             // 
-            this.recieved_date.Location = new System.Drawing.Point(193, 140);
+            this.recieved_date.Location = new System.Drawing.Point(290, 215);
+            this.recieved_date.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.recieved_date.Name = "recieved_date";
-            this.recieved_date.Size = new System.Drawing.Size(227, 20);
+            this.recieved_date.Size = new System.Drawing.Size(338, 26);
             this.recieved_date.TabIndex = 10;
             // 
             // description
             // 
-            this.description.Location = new System.Drawing.Point(193, 184);
+            this.description.Location = new System.Drawing.Point(290, 283);
+            this.description.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(227, 96);
+            this.description.Size = new System.Drawing.Size(338, 146);
             this.description.TabIndex = 11;
             this.description.Text = "";
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(464, 237);
+            this.btn_back.Location = new System.Drawing.Point(696, 365);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(101, 43);
+            this.btn_back.Size = new System.Drawing.Size(152, 66);
             this.btn_back.TabIndex = 12;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // cube_id
             // 
             this.cube_id.FormattingEnabled = true;
-            this.cube_id.Location = new System.Drawing.Point(193, 70);
+            this.cube_id.Location = new System.Drawing.Point(290, 108);
+            this.cube_id.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cube_id.Name = "cube_id";
-            this.cube_id.Size = new System.Drawing.Size(227, 21);
+            this.cube_id.Size = new System.Drawing.Size(338, 28);
             this.cube_id.TabIndex = 13;
             // 
             // client_id
             // 
             this.client_id.FormattingEnabled = true;
-            this.client_id.Location = new System.Drawing.Point(193, 106);
+            this.client_id.Location = new System.Drawing.Point(290, 163);
+            this.client_id.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.client_id.Name = "client_id";
-            this.client_id.Size = new System.Drawing.Size(227, 21);
+            this.client_id.Size = new System.Drawing.Size(338, 28);
             this.client_id.TabIndex = 14;
             // 
             // log
             // 
-            this.log.Location = new System.Drawing.Point(39, 216);
+            this.log.Location = new System.Drawing.Point(58, 332);
+            this.log.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(117, 63);
+            this.log.Size = new System.Drawing.Size(176, 97);
             this.log.TabIndex = 15;
             this.log.Text = "label5";
             // 
             // Good_record_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 306);
+            this.ClientSize = new System.Drawing.Size(914, 471);
             this.Controls.Add(this.log);
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
@@ -172,11 +186,13 @@ namespace Warehouse
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Good_record_form";
             this.Text = "Good_record_form";
             this.Load += new System.EventHandler(this.Good_record_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label log;

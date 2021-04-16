@@ -10,27 +10,17 @@ using System.Windows.Forms;
 
 namespace Warehouse
 {
-    public partial class Good_record_form : Form
+    public partial class Delete_Goods : Form
     {
-        public Good_record_form()
+        public Delete_Goods()
         {
             InitializeComponent();
-            btn_back.Click += new EventHandler(this.back);
+            btnBack.Click += new EventHandler(this.back);
         }
 
-        private void Good_record_form_Load(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btn_store_Click(object sender, EventArgs e)
-        {
-            // code to save a good to the database
-        }
-
-        private void btn_back_Click(object sender, EventArgs e)
-        {
-
+           
         }
         private void back(object sender, EventArgs e)
         {
