@@ -39,7 +39,8 @@ namespace Warehouse
         {
             var newClient = new Client(name.Text, email.Text, phone.Text);
             newClient.Save();
-            //clear form
+           
+            MessageBox.Show("Client registered succesfully!");
         }
     }
 }

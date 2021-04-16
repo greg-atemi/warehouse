@@ -52,7 +52,7 @@ namespace Warehouse
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 102);
+            this.label2.Location = new System.Drawing.Point(59, 170);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
@@ -62,34 +62,27 @@ namespace Warehouse
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(161, 100);
+            this.name.Location = new System.Drawing.Point(111, 163);
             this.name.Margin = new System.Windows.Forms.Padding(2);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(133, 20);
+            this.name.Size = new System.Drawing.Size(197, 20);
             this.name.TabIndex = 2;
             // 
             // btnUpdate
             // 
-<<<<<<< HEAD
-            this.btnUpdate.Location = new System.Drawing.Point(230, 416);
-=======
-            this.btnUpdate.Location = new System.Drawing.Point(161, 205);
+            this.btnUpdate.Location = new System.Drawing.Point(327, 236);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 17b7412435d5a0b17aa350eebdd613877a544ddc
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(105, 29);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnBack
             // 
-<<<<<<< HEAD
-            this.btnBack.Location = new System.Drawing.Point(642, 416);
-=======
-            this.btnBack.Location = new System.Drawing.Point(427, 205);
+            this.btnBack.Location = new System.Drawing.Point(59, 236);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 17b7412435d5a0b17aa350eebdd613877a544ddc
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(105, 29);
             this.btnBack.TabIndex = 4;
@@ -99,12 +92,8 @@ namespace Warehouse
             // 
             // get_name
             // 
-<<<<<<< HEAD
-            this.get_name.Location = new System.Drawing.Point(494, 196);
-=======
             this.get_name.Location = new System.Drawing.Point(329, 100);
             this.get_name.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 17b7412435d5a0b17aa350eebdd613877a544ddc
             this.get_name.Name = "get_name";
             this.get_name.Size = new System.Drawing.Size(105, 23);
             this.get_name.TabIndex = 5;
@@ -115,30 +104,26 @@ namespace Warehouse
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 244);
+            this.label3.Location = new System.Drawing.Point(48, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 20);
+            this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Cube ID";
             // 
             // cube_id
             // 
-            this.cube_id.Location = new System.Drawing.Point(241, 244);
+            this.cube_id.Location = new System.Drawing.Point(111, 103);
             this.cube_id.Name = "cube_id";
-            this.cube_id.Size = new System.Drawing.Size(197, 26);
+            this.cube_id.Size = new System.Drawing.Size(87, 20);
             this.cube_id.TabIndex = 7;
             // 
             // Update_Cube
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1437, 674);
+            this.ClientSize = new System.Drawing.Size(528, 428);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.label3);
-=======
-            this.ClientSize = new System.Drawing.Size(913, 438);
->>>>>>> 17b7412435d5a0b17aa350eebdd613877a544ddc
             this.Controls.Add(this.get_name);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdate);

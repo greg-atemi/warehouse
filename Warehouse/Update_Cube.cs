@@ -36,8 +36,16 @@ namespace Warehouse
 
         private void get_name_Click(object sender, EventArgs e)
         {
-            var cube = Cube.GetWithId(int.Parse(name.Text));
-            
+            var cube = Cube.GetWithId(int.Parse(cube_id.Text));
+            name.Text = cube.Name;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var cube = Cube.GetWithId(int.Parse(cube_id.Text));
+            cube.Name = name.Text;
+            cube.Update();
+            MessageBox.Show("Cube updated succesfully!");
         }
     }
 }
