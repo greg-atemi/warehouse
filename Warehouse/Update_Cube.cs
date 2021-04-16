@@ -33,5 +33,11 @@ namespace Warehouse
             this.Hide();
             form.Show();
         }
+
+        private void get_name_Click(object sender, EventArgs e)
+        {
+            var cube = Cube.GetWithId(int.Parse(name.Text));
+            
+        }
     }
 }

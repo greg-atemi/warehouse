@@ -6,18 +6,25 @@ namespace Warehouse
 {
 	public class Client: IDatabase
 	{
-		private string _email, _name;
+		private string _email, _name, _phone;
 		
-		public Client(string name, string email)
+		public Client(string name, string email, string phone)
 		{
 			_name = name;
 			_email = email;
+			_phone = phone;
 		}
 
 		public string Name
 		{
 			get => _name;
 			set => _name = value;
+		}
+
+		public string Phone
+		{
+			get => _phone;
+			set => _phone = value;
 		}
 
 		public string Email
@@ -42,7 +49,7 @@ namespace Warehouse
 			while (reader.Read())
 			{
 				Client tempClient;
-				tempClient = new Client(reader.GetString(1), reader.GetString(0));
+				tempClient = new Client(reader.GetString(1), reader.GetString(0), reader.GetString(2));
 				clients.Add(tempClient);
 			}
 			myDb.Connection.Close();
@@ -55,11 +62,12 @@ namespace Warehouse
 			myDb.Connection.Open();
 			var command = new SQLiteCommand(myDb.Connection)
 			{
-				CommandText = "INSERT INTO Client(name, email) VALUES(@name, @email)"
+				CommandText = "INSERT INTO Client(name, email, phone) VALUES(@name, @email, @phone)"
 			};
 
 			command.Parameters.AddWithValue("@name", _name);
 			command.Parameters.AddWithValue("@email", _email);
+			command.Parameters.AddWithValue("@phone", _phone);
 			command.Prepare();
 
 			command.ExecuteNonQuery();
@@ -82,7 +90,7 @@ namespace Warehouse
 			{
 				if (reader.Read())
 				{
-					var tempClient = new Client(reader.GetString(1), reader.GetString(0));
+					var tempClient = new Client(reader.GetString(1), reader.GetString(0), reader.GetString(2));
 					myDb.Connection.Close();
 					return tempClient;
 				}
@@ -99,11 +107,12 @@ namespace Warehouse
 
 			var command = new SQLiteCommand(myDb.Connection)
 			{
-				CommandText = "UPDATE Client SET name=@name, email=@email WHERE email=@email"
+				CommandText = "UPDATE Client SET name=@name, phone=@phone WHERE email=@email"
 			};
 
 			command.Parameters.AddWithValue("@name", _name);
 			command.Parameters.AddWithValue("@email", _email);
+			command.Parameters.AddWithValue("@phone", _phone);
 			command.Prepare();
 
 			command.ExecuteNonQuery();
