@@ -15,10 +15,12 @@ namespace Warehouse
         public Good_record_form()
         {
             InitializeComponent();
-
-            btn_back.Click += new EventHandler(this.back);
+            cube_id.DropDownStyle = ComboBoxStyle.DropDownList;
+            client_id.DropDownStyle = ComboBoxStyle.DropDownList;
             recieved_date.Format = DateTimePickerFormat.Custom;
             recieved_date.CustomFormat = "dd MM yyyy hh:mm";
+            recieved_date.MaxDate = DateTime.Now;
+            btn_back.Click += new EventHandler(this.back);
             name.KeyPress += new KeyPressEventHandler(this.InputValidator);
 
         }
@@ -31,6 +33,9 @@ namespace Warehouse
         private void btn_store_Click(object sender, EventArgs e)
         {
 
+            Console.WriteLine(recieved_date.Value);
+            var good = new Good(name.Text,description.Text,  recieved_date.Value, "cn", 1);
+            good.Save();
         }
      
 
@@ -47,7 +52,11 @@ namespace Warehouse
                 text = (TextBox)sender;
                 if (text.Name == name.Name)
                 {
-                    if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)8)
+                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
+                        e.Handled = false;
+                    else if (e.KeyChar == ' ')
+                        e.Handled = false;
+                    else
                         e.Handled = true;
                 }
             }

@@ -71,27 +71,25 @@ namespace Warehouse
 		public static Client GetWithEmail(string email)
 		{
 			Db myDb = new Db();
-
+			
 			myDb.Connection.Open();
-		
-			var command = new SQLiteCommand(myDb.Connection)
-			{
-				CommandText = "SELECT * FROM Client WHERE email=@email"
-			};
 			
+			using var command = new SQLiteCommand(myDb.Connection);
+			command.CommandText = "SELECT * FROM Client WHERE email=@email";
 			command.Parameters.AddWithValue("@email", email);
-			
-			var reader = command.ExecuteReader();
-			
-			if (reader.Read())
-			{
-				var tempClient = new Client(reader.GetString(1), reader.GetString(0));
-				myDb.Connection.Close();
-				return tempClient;
-			}
 
-			myDb.Connection.Close();
-			throw new Exception("client id not found.");
+			using (var reader = command.ExecuteReader())
+			{
+				if (reader.Read())
+				{
+					var tempClient = new Client(reader.GetString(1), reader.GetString(0));
+					myDb.Connection.Close();
+					return tempClient;
+				}
+
+				myDb.Connection.Close();
+				throw new Exception("client id not found.");
+			}
 		}
 
 		public void Update()
@@ -125,7 +123,7 @@ namespace Warehouse
 			};
 			
 			command.Parameters.AddWithValue("@email", _email);
-			command.Prepare();
+			// command.Prepare();
 
 			command.ExecuteNonQuery();
 

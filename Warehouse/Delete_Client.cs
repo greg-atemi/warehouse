@@ -40,6 +40,11 @@ namespace Warehouse
         {
             
         }
-      
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            var client = Client.GetWithEmail(client_id.Text);
+            client.Delete();
+        }
     }
 }

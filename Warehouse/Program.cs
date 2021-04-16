@@ -22,17 +22,12 @@ namespace Warehouse
         [STAThread]
         static void Main(string[] args)
         {
+
             AttachConsole(ATTACH_PARENT_PROCESS);
-
-
-             Application.EnableVisualStyles();
-             Application.SetCompatibleTextRenderingDefault(false);
-             Application.Run(new Good_record_form());
-
-
-            // var nw = new Client("Canary", "mchemweno27@gmail.com");
-            // nw.Save();
-
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Main_Form());
+            
         }
     }
 }

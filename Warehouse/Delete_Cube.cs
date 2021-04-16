@@ -28,5 +28,11 @@ namespace Warehouse
             this.Hide();
             form.Show();
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            var cube = Cube.GetWithId(int.Parse(cube_id.Text));
+            cube.Delete();
+        }
     }
 }
