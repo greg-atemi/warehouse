@@ -207,6 +207,7 @@ namespace Warehouse
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_update);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.Name = "Good_update_form";
             this.Text = "Good Update Form";
             ((System.ComponentModel.ISupportInitialize) (this.Err)).EndInit();
