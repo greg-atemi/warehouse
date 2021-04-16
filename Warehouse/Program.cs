@@ -23,15 +23,20 @@ namespace Warehouse
         static void Main(string[] args)
         {
             AttachConsole(ATTACH_PARENT_PROCESS);
-
+            
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Good_record_form());
+            Application.Run(new Main_Form());
 
 
             // var nw = new Client("Canary", "mchemweno27@gmail.com");
             // nw.Save();
+            
+            // Console.WriteLine("running main");
+            // var client = Client.GetWithEmail("g@gmail.com");
+            // // var client = new Client("mm", "k@gmail.com");
+            // client.Delete();
 
         }
     }

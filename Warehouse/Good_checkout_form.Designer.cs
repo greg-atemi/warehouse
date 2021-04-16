@@ -144,11 +144,7 @@ namespace Warehouse
             this.label1.Location = new System.Drawing.Point(68, 109);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-<<<<<<< HEAD
             this.label1.Size = new System.Drawing.Size(64, 13);
-=======
-            this.label1.Size = new System.Drawing.Size(51, 20);
->>>>>>> 8cc89af01bd00140ac7e0d5beae104a0f6a2a0c6
             this.label1.TabIndex = 12;
             this.label1.Text = "Good Name";
             // 
@@ -238,11 +234,8 @@ namespace Warehouse
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Good_checkout_form";
             this.Text = "Good_checkout_form";
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
-=======
             this.Load += new System.EventHandler(this.Good_checkout_form_Load);
->>>>>>> 8cc89af01bd00140ac7e0d5beae104a0f6a2a0c6
             this.ResumeLayout(false);
             this.PerformLayout();
 

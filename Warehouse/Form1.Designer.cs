@@ -53,11 +53,7 @@ namespace Warehouse
             this.label1.Location = new System.Drawing.Point(60, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-<<<<<<< HEAD
             this.label1.Size = new System.Drawing.Size(64, 13);
-=======
-            this.label1.Size = new System.Drawing.Size(51, 20);
->>>>>>> 8cc89af01bd00140ac7e0d5beae104a0f6a2a0c6
             this.label1.TabIndex = 0;
             this.label1.Text = "Good Name";
             // 
@@ -103,12 +99,8 @@ namespace Warehouse
             // 
             // btn_store
             // 
-<<<<<<< HEAD
             this.btn_store.Location = new System.Drawing.Point(696, 283);
             this.btn_store.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
-            this.btn_store.Location = new System.Drawing.Point(319, 326);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
             this.btn_store.Name = "btn_store";
             this.btn_store.Size = new System.Drawing.Size(152, 66);
             this.btn_store.TabIndex = 5;
@@ -127,14 +119,10 @@ namespace Warehouse
             // 
             // recieved_date
             // 
-<<<<<<< HEAD
-            this.recieved_date.Location = new System.Drawing.Point(290, 215);
-            this.recieved_date.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
+
             this.recieved_date.CustomFormat = "";
             this.recieved_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.recieved_date.Location = new System.Drawing.Point(193, 140);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
             this.recieved_date.Name = "recieved_date";
             this.recieved_date.Size = new System.Drawing.Size(338, 26);
             this.recieved_date.TabIndex = 10;
@@ -151,12 +139,8 @@ namespace Warehouse
             // 
             // btn_back
             // 
-<<<<<<< HEAD
             this.btn_back.Location = new System.Drawing.Point(696, 365);
             this.btn_back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
-            this.btn_back.Location = new System.Drawing.Point(43, 326);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(152, 66);
             this.btn_back.TabIndex = 12;
@@ -199,16 +183,7 @@ namespace Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(483, 398);
-=======
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(914, 471);
-            this.Controls.Add(this.log);
-=======
-            this.ClientSize = new System.Drawing.Size(483, 407);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
->>>>>>> 8cc89af01bd00140ac7e0d5beae104a0f6a2a0c6
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);

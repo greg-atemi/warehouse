@@ -41,36 +41,35 @@ namespace Warehouse
 			myDb.Connection.Close();
 			return cubes;
 		}
-		
+
 		public static Cube GetWithId(int id)
 		{
 			Db myDb = new Db();
-
+			
 			myDb.Connection.Open();
-		
-			var command = new SQLiteCommand(myDb.Connection)
+
+			using (var command = new SQLiteCommand(myDb.Connection))
 			{
-				CommandText = "SELECT * FROM Cube WHERE id=@id"
-			};
-			command.Parameters.AddWithValue("@id", id);
-			var reader = command.ExecuteReader();
-				
-			if (reader.Read())
-			{
-				var tempCube = new Cube(reader.GetString(1), reader.GetInt32(2) == 1, reader.GetInt32(0));
-				myDb.Connection.Close();
-				return tempCube;
+				command.CommandText = "SELECT * FROM Cube WHERE id=@id";
+				command.Parameters.AddWithValue("@id", id);
+
+				using (var reader = command.ExecuteReader())
+				{
+					if (reader.Read())
+					{
+						var tempCube = new Cube(reader.GetString(1), reader.GetInt32(2) == 1, reader.GetInt32(0));
+						myDb.Connection.Close();
+						return tempCube;
+					}
+
+					myDb.Connection.Close();
+					throw new Exception("Cube doesn't not exist");
+				}
 			}
-			myDb.Connection.Close();
-			throw new Exception("Cube doesn't not exist");
 		}
 
 		public void Save()
 		{
-			if (Id == 0)
-			{
-				throw new Exception("Cube does not exist");
-			}
 			Db myDb = new Db();
 			myDb.Connection.Open();
 			var command = new SQLiteCommand(myDb.Connection)
@@ -90,10 +89,6 @@ namespace Warehouse
 
 		public void Update()
 		{
-			if (Id == 0)
-			{
-				throw new Exception("Cube does not exist");
-			}
 			Db myDb = new Db();
 			myDb.Connection.Open();
 
@@ -116,10 +111,6 @@ namespace Warehouse
 
 		public void Delete()
 		{
-			if (Id == 0)
-			{
-				throw new Exception("Cube does not exist");
-			}
 			Db myDb = new Db();
 			myDb.Connection.Open();
 
