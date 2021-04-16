@@ -35,6 +35,8 @@ namespace Warehouse
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.get_name = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cube_id = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +67,7 @@ namespace Warehouse
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(241, 315);
+            this.btnUpdate.Location = new System.Drawing.Point(230, 416);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(157, 45);
             this.btnUpdate.TabIndex = 3;
@@ -74,7 +76,7 @@ namespace Warehouse
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(640, 315);
+            this.btnBack.Location = new System.Drawing.Point(642, 416);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(157, 45);
             this.btnBack.TabIndex = 4;
@@ -84,18 +86,36 @@ namespace Warehouse
             // 
             // get_name
             // 
-            this.get_name.Location = new System.Drawing.Point(494, 154);
+            this.get_name.Location = new System.Drawing.Point(494, 196);
             this.get_name.Name = "get_name";
             this.get_name.Size = new System.Drawing.Size(157, 36);
             this.get_name.TabIndex = 5;
             this.get_name.Text = "Fetch";
             this.get_name.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(71, 244);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Cube ID";
+            // 
+            // cube_id
+            // 
+            this.cube_id.Location = new System.Drawing.Point(241, 244);
+            this.cube_id.Name = "cube_id";
+            this.cube_id.Size = new System.Drawing.Size(197, 26);
+            this.cube_id.TabIndex = 7;
+            // 
             // Update_Cube
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 674);
+            this.Controls.Add(this.cube_id);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.get_name);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdate);
@@ -117,5 +137,7 @@ namespace Warehouse
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button get_name;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox cube_id;
     }
 }
