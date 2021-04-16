@@ -20,8 +20,9 @@ namespace Warehouse
             recieved_date.Format = DateTimePickerFormat.Custom;
             recieved_date.CustomFormat = "dd MM yyyy hh:mm";
             recieved_date.MaxDate = DateTime.Now;
-            btn_back.Click += new EventHandler(this.Back);
+            btn_back.Click += new EventHandler(this.back);
             name.KeyPress += new KeyPressEventHandler(this.InputValidator);
+
         }
 
         private void Good_record_form_Load(object sender, EventArgs e)
@@ -48,12 +49,7 @@ namespace Warehouse
             else
                 Err.SetError(recieved_date, "");
         }
-        private void Back(object sender, EventArgs e)
-        {
-            var form = new Good_checkout_form();
-            this.Hide();
-            form.Show();
-        }
+     
 
         private void name_TextChanged(object sender, EventArgs e)
         {
@@ -77,6 +73,17 @@ namespace Warehouse
                 }
             }
 
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void back(object sender, EventArgs e)
+        {
+            var form = new Main_Form();
+            this.Hide();
+            form.Show();
         }
     }
 }
