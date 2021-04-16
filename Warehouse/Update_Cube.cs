@@ -15,6 +15,23 @@ namespace Warehouse
         public Update_Cube()
         {
             InitializeComponent();
+            btnBack.Click += new EventHandler(this.back);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void back(object sender, EventArgs e)
+        {
+            var form = new Main_Form();
+            this.Hide();
+            form.Show();
         }
     }
 }
