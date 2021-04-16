@@ -32,22 +32,10 @@ namespace Warehouse
 
         private void btn_store_Click(object sender, EventArgs e)
         {
-            if (name.Text == string.Empty)
-                Err.SetError(name, "Name cannot be null!!");
-            else
-                Err.SetError(name, "");
-            if (cube_id.Text == string.Empty)
-                Err.SetError(cube_id, "Cube ID cannot be null!!");
-            else
-                Err.SetError(cube_id, "");
-            if (client_id.Text == string.Empty)
-                Err.SetError(client_id, "Client ID cannot be null!!");
-            else
-                Err.SetError(client_id, "");
-            if (recieved_date.Text == string.Empty)
-                Err.SetError(recieved_date, "Received date cannot be null!!");
-            else
-                Err.SetError(recieved_date, "");
+
+            Console.WriteLine(recieved_date.Value);
+            var good = new Good(name.Text,description.Text,  recieved_date.Value, "cn", 1);
+            good.Save();
         }
      
 

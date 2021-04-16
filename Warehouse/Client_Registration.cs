@@ -34,5 +34,12 @@ namespace Warehouse
             this.Hide();
             form.Show();
         }
+
+        private void register_Click(object sender, EventArgs e)
+        {
+                var newClient = new Client(name.Text, email.Text);
+                newClient.Save();
+                //clear form
+        }
     }
 }

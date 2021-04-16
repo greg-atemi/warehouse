@@ -28,5 +28,11 @@ namespace Warehouse
             this.Hide();
             form.Show();
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            var good = Good.GetWithId(int.Parse(name.Text));
+            good.Delete();
+        }
     }
 }

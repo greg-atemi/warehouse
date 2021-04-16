@@ -28,5 +28,11 @@ namespace Warehouse
             this.Close();
             form.Show();
         }
+
+        private void createcube_Click(object sender, EventArgs e)
+        {
+            var cube = new Cube(name.Text, false);
+            cube.Save();
+        }
     }
 }

@@ -83,10 +83,6 @@ namespace Warehouse
 
 		public void Save()
 		{
-			if (_id == 0)
-			{
-				throw new Exception("Cube does not exist");
-			}
 			Db myDb = new Db();
 			myDb.Connection.Open();
 			var command = new SQLiteCommand(myDb.Connection)
@@ -132,10 +128,7 @@ namespace Warehouse
 
 		public void Delete()
 		{
-			if (_id == 0)
-			{
-				throw new Exception("Cube does not exist");
-			}
+			Console.WriteLine("Delete Function... ");
 			Db myDb = new Db();
 			myDb.Connection.Open();
 
@@ -149,7 +142,7 @@ namespace Warehouse
 
 			command.ExecuteNonQuery();
 
-			// Console.WriteLine("row deleted");
+			Console.WriteLine("row deleted");
 			myDb.Connection.Close();
 		}
 	}

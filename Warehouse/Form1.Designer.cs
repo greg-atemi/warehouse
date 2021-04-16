@@ -44,73 +44,59 @@ namespace Warehouse
             this.client_id = new System.Windows.Forms.ComboBox();
             this.log = new System.Windows.Forms.Label();
             this.Err = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.Err)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 54);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(40, 35);
             this.label1.Name = "label1";
-<<<<<<< HEAD
             this.label1.Size = new System.Drawing.Size(64, 13);
-=======
-            this.label1.Size = new System.Drawing.Size(51, 20);
->>>>>>> 8cc89af01bd00140ac7e0d5beae104a0f6a2a0c6
             this.label1.TabIndex = 0;
             this.label1.Text = "Good Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 283);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(40, 184);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Description";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 163);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(40, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Client ID";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(60, 108);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(40, 70);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Cube ID";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(60, 215);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(40, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 20);
+            this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "Recieved Date";
             // 
             // btn_store
             // 
-<<<<<<< HEAD
-            this.btn_store.Location = new System.Drawing.Point(696, 283);
-            this.btn_store.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
-            this.btn_store.Location = new System.Drawing.Point(319, 326);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
+            this.btn_store.Location = new System.Drawing.Point(319, 327);
             this.btn_store.Name = "btn_store";
-            this.btn_store.Size = new System.Drawing.Size(152, 66);
+            this.btn_store.Size = new System.Drawing.Size(101, 43);
             this.btn_store.TabIndex = 5;
             this.btn_store.Text = "Store Good";
             this.btn_store.UseVisualStyleBackColor = true;
@@ -118,47 +104,37 @@ namespace Warehouse
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(290, 54);
-            this.name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.name.Location = new System.Drawing.Point(193, 35);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(338, 26);
+            this.name.Size = new System.Drawing.Size(227, 20);
             this.name.TabIndex = 6;
             this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
             // recieved_date
             // 
-<<<<<<< HEAD
-            this.recieved_date.Location = new System.Drawing.Point(290, 215);
-            this.recieved_date.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
             this.recieved_date.CustomFormat = "";
             this.recieved_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.recieved_date.Location = new System.Drawing.Point(193, 140);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
+            this.recieved_date.Margin = new System.Windows.Forms.Padding(2);
             this.recieved_date.Name = "recieved_date";
-            this.recieved_date.Size = new System.Drawing.Size(338, 26);
+            this.recieved_date.Size = new System.Drawing.Size(227, 20);
             this.recieved_date.TabIndex = 10;
             this.recieved_date.Value = new System.DateTime(2021, 4, 15, 16, 10, 20, 0);
             // 
             // description
             // 
-            this.description.Location = new System.Drawing.Point(290, 283);
-            this.description.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.description.Location = new System.Drawing.Point(193, 184);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(338, 146);
+            this.description.Size = new System.Drawing.Size(227, 96);
             this.description.TabIndex = 11;
             this.description.Text = "";
             // 
             // btn_back
             // 
-<<<<<<< HEAD
-            this.btn_back.Location = new System.Drawing.Point(696, 365);
-            this.btn_back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
-            this.btn_back.Location = new System.Drawing.Point(43, 326);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
+            this.btn_back.Location = new System.Drawing.Point(40, 327);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(2);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(152, 66);
+            this.btn_back.Size = new System.Drawing.Size(101, 43);
             this.btn_back.TabIndex = 12;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
@@ -167,19 +143,17 @@ namespace Warehouse
             // cube_id
             // 
             this.cube_id.FormattingEnabled = true;
-            this.cube_id.Location = new System.Drawing.Point(290, 108);
-            this.cube_id.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cube_id.Location = new System.Drawing.Point(193, 70);
             this.cube_id.Name = "cube_id";
-            this.cube_id.Size = new System.Drawing.Size(338, 28);
+            this.cube_id.Size = new System.Drawing.Size(227, 21);
             this.cube_id.TabIndex = 13;
             // 
             // client_id
             // 
             this.client_id.FormattingEnabled = true;
-            this.client_id.Location = new System.Drawing.Point(290, 163);
-            this.client_id.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.client_id.Location = new System.Drawing.Point(193, 106);
             this.client_id.Name = "client_id";
-            this.client_id.Size = new System.Drawing.Size(338, 28);
+            this.client_id.Size = new System.Drawing.Size(227, 21);
             this.client_id.TabIndex = 14;
             // 
             // log
@@ -197,18 +171,9 @@ namespace Warehouse
             // 
             // Good_record_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(483, 398);
-=======
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(914, 471);
-            this.Controls.Add(this.log);
-=======
-            this.ClientSize = new System.Drawing.Size(483, 407);
->>>>>>> 7e8259510ccd383977e1cccb08c8022ed2835692
->>>>>>> 8cc89af01bd00140ac7e0d5beae104a0f6a2a0c6
+            this.ClientSize = new System.Drawing.Size(472, 394);
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);
@@ -221,14 +186,12 @@ namespace Warehouse
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Good_record_form";
             this.Text = "Good_record_form";
             this.Load += new System.EventHandler(this.Good_record_form_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         private System.Windows.Forms.Label log;

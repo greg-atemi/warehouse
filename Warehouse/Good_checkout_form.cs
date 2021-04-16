@@ -12,6 +12,8 @@ namespace Warehouse
 {
     public partial class Good_checkout_form : Form
     {
+        
+        static Good good = null;
         public Good_checkout_form()
         {
             InitializeComponent();
@@ -57,6 +59,10 @@ namespace Warehouse
                 Err.SetError(released_date, "Released date cannot be null!!");
             else
                 Err.SetError(released_date, "");
+
+            good.ReleasedDate = released_date.Value;
+            good.Update();
+
         }
 
         private void good_id_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,6 +73,17 @@ namespace Warehouse
         private void Good_checkout_form_Load(object sender, EventArgs e)
 
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            good = Good.GetWithId(int.Parse(good_id.Text));
+            name.Text = good.Name;
+            cube_id.Text = good.CubeId.ToString();
+            client_id.Text = good.ClientId.ToString();
+            received_date.Text = good.ReceivedDate.ToString();
+            description.Text = good.Description;
 
         }
     }
