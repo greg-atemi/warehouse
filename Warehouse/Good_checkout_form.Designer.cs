@@ -225,6 +225,7 @@ namespace Warehouse
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Good_checkout_form";
             this.Text = "Good_checkout_form";
+            this.Load += new System.EventHandler(this.Good_checkout_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
