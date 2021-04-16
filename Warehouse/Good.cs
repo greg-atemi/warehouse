@@ -6,7 +6,8 @@ namespace Warehouse
 {
     public class Good : IDatabase
     {
-        public Good(string name, string descriptions, DateTime receivedDate, DateTime releasedDate,
+
+        public Good(string name, string descriptions, DateTime receivedDate,
             String clientId,
             int cubeId, int id = 0)
         {
@@ -14,7 +15,6 @@ namespace Warehouse
             Name = name;
             Description = descriptions;
             ReceivedDate = receivedDate;
-            ReleasedDate = releasedDate;
             ClientId = clientId;
             CubeId = cubeId;
         }
@@ -36,28 +36,25 @@ namespace Warehouse
 
         public static Good GetWithId(int id)
         {
-            var myDb = new Db();
-
+            Db myDb = new Db();
             myDb.Connection.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM Goods WHERE id=@id", myDb.Connection))
+                {
+                cmd.Parameters.AddWithValue("@id", id);
+                using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        if (rdr.Read())
+                        {
+                            var good = new Good(rdr.GetString(1), rdr.GetString(2),
+                                new DateTime(rdr.GetInt64(5)), rdr.GetString(3), rdr.GetInt32(4), rdr.GetInt32(0));
+                            myDb.Connection.Close();
+                            return good;
+                        }
 
-            var command = new SQLiteCommand(myDb.Connection)
-            {
-                CommandText = "SELECT * FROM Goods WHERE id=@id"
-            };
-            command.Parameters.AddWithValue("@id", id);
-            var reader = command.ExecuteReader();
+                        throw new Exception("No good with that ID");
+                    }
+                }
 
-            if (reader.Read())
-            {
-                var good = new Good(reader.GetString(1), reader.GetString(2),
-                    new DateTime(reader.GetInt64(5)),
-                    new DateTime(reader.GetInt64(6)), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(0));
-                myDb.Connection.Close();
-                return good;
-            }
-
-            myDb.Connection.Close();
-            throw new Exception("No good with that ID");
         }
 
 
@@ -78,7 +75,7 @@ namespace Warehouse
             {
                 var temp = new Good(reader.GetString(1), reader.GetString(2),
                     new DateTime(reader.GetInt64(5)),
-                    new DateTime(reader.GetInt64(6)), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(0));
+                    reader.GetString(3), reader.GetInt32(4), reader.GetInt32(0));
 
                 goods.Add(temp);
             }
@@ -137,7 +134,7 @@ namespace Warehouse
 
         public void Delete()
         {
-            var myDb = new Db();
+            Db myDb = new Db();
             myDb.Connection.Open();
 
             var command = new SQLiteCommand(myDb.Connection)

@@ -29,6 +29,7 @@ namespace Warehouse
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.description = new System.Windows.Forms.RichTextBox();
             this.client_id = new System.Windows.Forms.TextBox();
             this.cube_id = new System.Windows.Forms.TextBox();
@@ -44,7 +45,10 @@ namespace Warehouse
             this.received_date = new System.Windows.Forms.TextBox();
             this.btn_back = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.good_id = new System.Windows.Forms.ComboBox();
+            this.Err = new System.Windows.Forms.ErrorProvider(this.components);
+            this.good_id = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).BeginInit();
             this.SuspendLayout();
             // 
             // description
@@ -82,12 +86,13 @@ namespace Warehouse
             // 
             // btn_release
             // 
-            this.btn_release.Location = new System.Drawing.Point(324, 411);
+            this.btn_release.Location = new System.Drawing.Point(324, 403);
             this.btn_release.Name = "btn_release";
             this.btn_release.Size = new System.Drawing.Size(101, 43);
             this.btn_release.TabIndex = 17;
             this.btn_release.Text = "Release Good";
             this.btn_release.UseVisualStyleBackColor = true;
+            this.btn_release.Click += new System.EventHandler(this.btn_release_Click);
             // 
             // label6
             // 
@@ -130,9 +135,9 @@ namespace Warehouse
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(45, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Name";
+            this.label1.Text = "Good Name";
             // 
             // released_date
             // 
@@ -157,10 +162,11 @@ namespace Warehouse
             this.received_date.ReadOnly = true;
             this.received_date.Size = new System.Drawing.Size(227, 20);
             this.received_date.TabIndex = 25;
+            // this.received_date.TextChanged += new System.EventHandler(this.received_date_TextChanged);
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(48, 411);
+            this.btn_back.Location = new System.Drawing.Point(48, 403);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(101, 43);
             this.btn_back.TabIndex = 26;
@@ -177,19 +183,33 @@ namespace Warehouse
             this.label7.TabIndex = 27;
             this.label7.Text = "Good ID";
             // 
+            // Err
+            // 
+            this.Err.ContainerControl = this;
+            // 
             // good_id
             // 
-            this.good_id.FormattingEnabled = true;
             this.good_id.Location = new System.Drawing.Point(198, 36);
             this.good_id.Name = "good_id";
-            this.good_id.Size = new System.Drawing.Size(227, 21);
-            this.good_id.TabIndex = 28;
+            this.good_id.Size = new System.Drawing.Size(227, 20);
+            this.good_id.TabIndex = 29;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(481, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 37);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Good_checkout_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 494);
+            this.ClientSize = new System.Drawing.Size(616, 510);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.good_id);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_back);
@@ -208,9 +228,10 @@ namespace Warehouse
             this.Controls.Add(this.label1);
             this.Name = "Good_checkout_form";
             this.Text = "Good_checkout_form";
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
+            this.Load += new System.EventHandler(this.Good_checkout_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -230,6 +251,8 @@ namespace Warehouse
         private System.Windows.Forms.TextBox received_date;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox good_id;
+        private System.Windows.Forms.ErrorProvider Err;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox good_id;
     }
 }

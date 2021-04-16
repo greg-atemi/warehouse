@@ -29,6 +29,7 @@ namespace Warehouse
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@ namespace Warehouse
             this.cube_id = new System.Windows.Forms.ComboBox();
             this.client_id = new System.Windows.Forms.ComboBox();
             this.log = new System.Windows.Forms.Label();
+            this.Err = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,9 +52,9 @@ namespace Warehouse
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(40, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.label1.Text = "Good Name";
             // 
             // label2
             // 
@@ -91,7 +94,8 @@ namespace Warehouse
             // 
             // btn_store
             // 
-            this.btn_store.Location = new System.Drawing.Point(319, 326);
+            this.btn_store.Location = new System.Drawing.Point(696, 283);
+            this.btn_store.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_store.Name = "btn_store";
             this.btn_store.Size = new System.Drawing.Size(101, 43);
             this.btn_store.TabIndex = 5;
@@ -109,9 +113,11 @@ namespace Warehouse
             // 
             // recieved_date
             // 
+
             this.recieved_date.CustomFormat = "";
             this.recieved_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.recieved_date.Location = new System.Drawing.Point(193, 140);
+            this.recieved_date.Margin = new System.Windows.Forms.Padding(2);
             this.recieved_date.Name = "recieved_date";
             this.recieved_date.Size = new System.Drawing.Size(227, 20);
             this.recieved_date.TabIndex = 10;
@@ -127,12 +133,14 @@ namespace Warehouse
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(43, 326);
+            this.btn_back.Location = new System.Drawing.Point(696, 365);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(101, 43);
             this.btn_back.TabIndex = 12;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // cube_id
             // 
@@ -152,17 +160,22 @@ namespace Warehouse
             // 
             // log
             // 
-            this.log.Location = new System.Drawing.Point(39, 216);
+            this.log.Location = new System.Drawing.Point(58, 332);
+            this.log.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(117, 63);
+            this.log.Size = new System.Drawing.Size(176, 97);
             this.log.TabIndex = 15;
             this.log.Text = "label5";
+            // 
+            // Err
+            // 
+            this.Err.ContainerControl = this;
             // 
             // Good_record_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 407);
+            this.ClientSize = new System.Drawing.Size(483, 398);
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);
@@ -178,9 +191,9 @@ namespace Warehouse
             this.Name = "Good_record_form";
             this.Text = "Good_record_form";
             this.Load += new System.EventHandler(this.Good_record_form_Load);
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         private System.Windows.Forms.Label log;
@@ -199,6 +212,7 @@ namespace Warehouse
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.ComboBox cube_id;
         private System.Windows.Forms.ComboBox client_id;
+        private System.Windows.Forms.ErrorProvider Err;
     }
 }
 

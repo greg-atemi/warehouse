@@ -15,10 +15,14 @@ namespace Warehouse
         public Good_record_form()
         {
             InitializeComponent();
+            cube_id.DropDownStyle = ComboBoxStyle.DropDownList;
+            client_id.DropDownStyle = ComboBoxStyle.DropDownList;
             recieved_date.Format = DateTimePickerFormat.Custom;
             recieved_date.CustomFormat = "dd MM yyyy hh:mm";
-            btn_back.Click += new EventHandler(this.Back);
+            recieved_date.MaxDate = DateTime.Now;
+            btn_back.Click += new EventHandler(this.back);
             name.KeyPress += new KeyPressEventHandler(this.InputValidator);
+
         }
 
         private void Good_record_form_Load(object sender, EventArgs e)
@@ -29,13 +33,11 @@ namespace Warehouse
         private void btn_store_Click(object sender, EventArgs e)
         {
 
+            Console.WriteLine(recieved_date.Value);
+            var good = new Good(name.Text,description.Text,  recieved_date.Value, "cn", 1);
+            good.Save();
         }
-        private void Back(object sender, EventArgs e)
-        {
-            var form = new Good_checkout_form();
-            this.Hide();
-            form.Show();
-        }
+     
 
         private void name_TextChanged(object sender, EventArgs e)
         {
@@ -50,11 +52,26 @@ namespace Warehouse
                 text = (TextBox)sender;
                 if (text.Name == name.Name)
                 {
-                    if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)8)
+                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
+                        e.Handled = false;
+                    else if (e.KeyChar == ' ')
+                        e.Handled = false;
+                    else
                         e.Handled = true;
                 }
             }
 
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void back(object sender, EventArgs e)
+        {
+            var form = new Main_Form();
+            this.Hide();
+            form.Show();
         }
     }
 }

@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Warehouse.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -70,8 +73,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Client_Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client_Registration.Designer.cs">
+      <DependentUpon>Client_Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Cube.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_Cube.Designer.cs">
+      <DependentUpon>Create_Cube.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cube.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="Delete_Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_Client.Designer.cs">
+      <DependentUpon>Delete_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delete_Cube.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_Cube.Designer.cs">
+      <DependentUpon>Delete_Cube.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delete_Goods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_Goods.Designer.cs">
+      <DependentUpon>Delete_Goods.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,13 +119,37 @@
       <DependentUpon>Good_checkout_form.cs</DependentUpon>
     </Compile>
     <Compile Include="IDatabase.cs" />
+    <Compile Include="Main_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Form.Designer.cs">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Client_Registration.resx">
+      <DependentUpon>Client_Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_Cube.resx">
+      <DependentUpon>Create_Cube.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete_Client.resx">
+      <DependentUpon>Delete_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete_Cube.resx">
+      <DependentUpon>Delete_Cube.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete_Goods.resx">
+      <DependentUpon>Delete_Goods.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Good_checkout_form.resx">
       <DependentUpon>Good_checkout_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
