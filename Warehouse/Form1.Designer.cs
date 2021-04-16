@@ -94,7 +94,8 @@ namespace Warehouse
             // 
             // btn_store
             // 
-            this.btn_store.Location = new System.Drawing.Point(319, 327);
+            this.btn_store.Location = new System.Drawing.Point(696, 283);
+            this.btn_store.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_store.Name = "btn_store";
             this.btn_store.Size = new System.Drawing.Size(101, 43);
             this.btn_store.TabIndex = 5;
@@ -112,6 +113,7 @@ namespace Warehouse
             // 
             // recieved_date
             // 
+
             this.recieved_date.CustomFormat = "";
             this.recieved_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.recieved_date.Location = new System.Drawing.Point(193, 140);
@@ -131,8 +133,8 @@ namespace Warehouse
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(40, 327);
-            this.btn_back.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_back.Location = new System.Drawing.Point(696, 365);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(101, 43);
             this.btn_back.TabIndex = 12;
@@ -173,7 +175,7 @@ namespace Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 394);
+            this.ClientSize = new System.Drawing.Size(483, 398);
             this.Controls.Add(this.client_id);
             this.Controls.Add(this.cube_id);
             this.Controls.Add(this.btn_back);

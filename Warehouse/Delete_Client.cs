@@ -43,8 +43,6 @@ namespace Warehouse
 
         private void delete_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("delete clicked");
-            Console.WriteLine(client_id.Text);
             var client = Client.GetWithEmail(client_id.Text);
             client.Delete();
         }

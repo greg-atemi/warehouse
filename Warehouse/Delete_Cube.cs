@@ -31,10 +31,7 @@ namespace Warehouse
 
         private void delete_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Delete Clicked");
-            Console.WriteLine(cube_id.Text);
             var cube = Cube.GetWithId(int.Parse(cube_id.Text));
-            Console.WriteLine(cube.Id);
             cube.Delete();
         }
     }

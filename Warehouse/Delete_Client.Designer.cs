@@ -35,7 +35,7 @@ namespace Warehouse
             this.delete = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.Err = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.Err)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -95,10 +95,9 @@ namespace Warehouse
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Delete_Client";
             this.Text = "Delete_Client";
-            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

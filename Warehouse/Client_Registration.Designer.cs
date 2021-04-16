@@ -145,7 +145,6 @@ namespace Warehouse
             this.Text = "Client_Registration";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

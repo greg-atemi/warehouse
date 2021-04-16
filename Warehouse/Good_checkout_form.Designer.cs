@@ -228,8 +228,8 @@ namespace Warehouse
             this.Controls.Add(this.label1);
             this.Name = "Good_checkout_form";
             this.Text = "Good_checkout_form";
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
             this.Load += new System.EventHandler(this.Good_checkout_form_Load);
-            ((System.ComponentModel.ISupportInitialize) (this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

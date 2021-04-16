@@ -89,7 +89,6 @@ namespace Warehouse
             this.Text = "Delete_Cube";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

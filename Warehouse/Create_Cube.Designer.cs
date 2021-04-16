@@ -101,7 +101,6 @@ namespace Warehouse
             this.Text = "Create_Cube";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

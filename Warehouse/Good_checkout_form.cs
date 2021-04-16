@@ -84,7 +84,6 @@ namespace Warehouse
             client_id.Text = good.ClientId.ToString();
             received_date.Text = good.ReceivedDate.ToString();
             description.Text = good.Description;
-
         }
     }
 }
