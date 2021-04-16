@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace Warehouse
 {
-    public partial class Client_Registration : Form
+    public partial class Update_Client : Form
     {
-        public Client_Registration()
+        public Update_Client()
         {
             InitializeComponent();
             btnBack.Click += new EventHandler(this.back);
         }
 
-        private void back_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
@@ -34,12 +34,19 @@ namespace Warehouse
             form.Show();
         }
 
-        private void register_Click(object sender, EventArgs e)
+        private void get_email_Click(object sender, EventArgs e)
         {
-            var newClient = new Client(name.Text, email.Text, phone.Text);
-            newClient.Save();
-           
-            MessageBox.Show("Client registered succesfully!");
+            var client = Client.GetWithEmail(email.Text);
+            name.Text = client.Name;
+            phone_number.Text = client.Phone;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var client = new Client(name.Text, email.Text, phone_number.Text);
+            client.Update();
+            MessageBox.Show("Client updated succesfully!");
+
         }
     }
 }

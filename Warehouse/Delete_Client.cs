@@ -45,6 +45,8 @@ namespace Warehouse
         {
             var client = Client.GetWithEmail(client_id.Text);
             client.Delete();
+            MessageBox.Show("Client deleted!");
+
         }
     }
 }

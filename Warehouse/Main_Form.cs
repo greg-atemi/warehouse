@@ -40,7 +40,7 @@ namespace Warehouse
         }
         private void update(object sender, EventArgs e)
         {
-            var form1 = new Client_Registration();
+            var form1 = new Update_Client();
             this.Hide();
             form1.Show();
         }
@@ -113,7 +113,7 @@ namespace Warehouse
         }
         private void date(object sender, EventArgs e)
         {
-            var form8 = new Create_Cube();
+            var form8 = new Update_Cube();
             this.Hide();
             form8.Show();
         }

@@ -133,6 +133,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Update_Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_Client.Designer.cs">
+      <DependentUpon>Update_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update_Cube.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_Cube.Designer.cs">
+      <DependentUpon>Update_Cube.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Client_Registration.resx">
       <DependentUpon>Client_Registration.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +181,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Update_Client.resx">
+      <DependentUpon>Update_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update_Cube.resx">
+      <DependentUpon>Update_Cube.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -33,6 +33,8 @@ namespace Warehouse
         {
             var cube = Cube.GetWithId(int.Parse(cube_id.Text));
             cube.Delete();
+            MessageBox.Show("Cube deleted!");
+
         }
     }
 }

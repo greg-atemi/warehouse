@@ -91,7 +91,6 @@ namespace Warehouse
             this.delete_client.TabIndex = 2;
             this.delete_client.Text = "Delete Client";
             this.delete_client.UseVisualStyleBackColor = true;
-            this.delete_client.Click += new System.EventHandler(this.delete);
             // 
             // register_client
             // 
@@ -132,7 +131,6 @@ namespace Warehouse
             this.delete_good.TabIndex = 4;
             this.delete_good.Text = "Delete Good";
             this.delete_good.UseVisualStyleBackColor = true;
-            this.delete_good.Click += new System.EventHandler(this.delete_good_Click);
             // 
             // update_good
             // 
