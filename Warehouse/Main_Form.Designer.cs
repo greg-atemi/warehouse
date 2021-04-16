@@ -101,7 +101,6 @@ namespace Warehouse
             this.register_client.TabIndex = 1;
             this.register_client.Text = "Register Client";
             this.register_client.UseVisualStyleBackColor = true;
-            this.register_client.Click += new System.EventHandler(this.register);
             // 
             // label2
             // 
@@ -143,7 +142,6 @@ namespace Warehouse
             this.update_good.TabIndex = 3;
             this.update_good.Text = "Update Good";
             this.update_good.UseVisualStyleBackColor = true;
-            this.update_good.Click += new System.EventHandler(this.update_good_Click);
             // 
             // Checkout_good
             // 

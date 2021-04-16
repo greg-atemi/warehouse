@@ -10,14 +10,16 @@ using System.Windows.Forms;
 
 namespace Warehouse
 {
-    public partial class Good_record_form : Form
+    public partial class Good_update_form : Form
     {
         private List<Client> clients = Client.GetAll();
         private List<Cube> cubes = Cube.GetAll();
-        public Good_record_form()
+        
+        static Good good = null;
+        public Good_update_form()
         {
             InitializeComponent();
-            cube.DropDownStyle = ComboBoxStyle.DropDownList;
+            cube_id.DropDownStyle = ComboBoxStyle.DropDownList;
             client_email.DropDownStyle = ComboBoxStyle.DropDownList;
             recieved_date.Format = DateTimePickerFormat.Custom;
             recieved_date.CustomFormat = "dd MM yyyy hh:mm";
@@ -31,25 +33,8 @@ namespace Warehouse
 
             foreach (var cube in cubes)
             {
-                this.cube.Items.Add(cube.Id +". "+cube.Name);
+                this.cube_id.Items.Add(cube.Id + ". " + cube.Name);
             }
-        }
-
-        private void Good_record_form_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_store_Click(object sender, EventArgs e)
-        {
-
-            
-        }
-     
-
-        private void name_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void InputValidator(object sender, KeyPressEventArgs e)
@@ -57,10 +42,10 @@ namespace Warehouse
             TextBox text;
             if (sender is TextBox)
             {
-                text = (TextBox)sender;
+                text = (TextBox) sender;
                 if (text.Name == name.Name)
                 {
-                    if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)8)
+                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char) 8)
                         e.Handled = false;
                     else if (e.KeyChar == ' ')
                         e.Handled = false;
@@ -68,12 +53,6 @@ namespace Warehouse
                         e.Handled = true;
                 }
             }
-
-        }
-
-        private void btn_back_Click(object sender, EventArgs e)
-        {
-
         }
         private void back(object sender, EventArgs e)
         {
@@ -81,25 +60,28 @@ namespace Warehouse
             this.Hide();
             form.Show();
         }
+        private void btn_update_Click(object sender, EventArgs e)
+            {
+
+                var cubeId = cube_id.Text.Split('.')[0];
+                var good = new Good(name.Text,description.Text,  recieved_date.Value, client_email.Text, int.Parse(cubeId));
+                good.Save();
+                name.Text = "";
+                cube_id.SelectedIndex = -1;
+                cube_id.SelectedIndex = -1;
+                client_email.SelectedIndex = -1;
+                recieved_date.Text = "";
+                description.Text = "";
+            }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
-        }
-
-        private void btn_store_Click_1(object sender, EventArgs e)
-        {
-
-            var cubeId = cube.Text.Split('.')[0];
-            var good = new Good(name.Text,description.Text,  recieved_date.Value, client_email.Text, int.Parse(cubeId));
-            good.Save();
-            name.Text = "";
-            cube.SelectedIndex = -1;
-            cube.SelectedIndex = -1;
-            client_email.SelectedIndex = -1;
-            recieved_date.Text = "";
-            description.Text = "";
+            good = Good.GetWithId(int.Parse(good_id.Text));
+            name.Text = good.Name;
+            cube_id.Text = good.CubeId.ToString();
+            client_email.Text = good.ClientId.ToString();
+            recieved_date.Text = good.ReceivedDate.ToString();
+            description.Text = good.Description;
         }
     }
-}
-
+    }

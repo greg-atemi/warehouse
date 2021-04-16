@@ -16,7 +16,6 @@ namespace Warehouse
         {
             InitializeComponent();
             btnBack.Click += new EventHandler(this.back);
-
         }
 
         private void back_Click(object sender, EventArgs e)

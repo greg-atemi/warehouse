@@ -47,7 +47,7 @@ namespace Warehouse
             this.label7 = new System.Windows.Forms.Label();
             this.Err = new System.Windows.Forms.ErrorProvider(this.components);
             this.good_id = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.Err)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,7 +162,6 @@ namespace Warehouse
             this.received_date.ReadOnly = true;
             this.received_date.Size = new System.Drawing.Size(227, 20);
             this.received_date.TabIndex = 25;
-            // this.received_date.TextChanged += new System.EventHandler(this.received_date_TextChanged);
             // 
             // btn_back
             // 
@@ -194,22 +193,22 @@ namespace Warehouse
             this.good_id.Size = new System.Drawing.Size(227, 20);
             this.good_id.TabIndex = 29;
             // 
-            // button1
+            // btn_search
             // 
-            this.button1.Location = new System.Drawing.Point(481, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 37);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_search.Location = new System.Drawing.Point(470, 36);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(101, 37);
+            this.btn_search.TabIndex = 30;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.button1_Click);
             // 
             // Good_checkout_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 510);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(604, 484);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.good_id);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_back);
@@ -228,8 +227,8 @@ namespace Warehouse
             this.Controls.Add(this.label1);
             this.Name = "Good_checkout_form";
             this.Text = "Good_checkout_form";
-            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
             this.Load += new System.EventHandler(this.Good_checkout_form_Load);
+            ((System.ComponentModel.ISupportInitialize) (this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -252,7 +251,7 @@ namespace Warehouse
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider Err;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.TextBox good_id;
     }
 }

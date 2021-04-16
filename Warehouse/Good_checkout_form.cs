@@ -17,9 +17,10 @@ namespace Warehouse
         public Good_checkout_form()
         {
             InitializeComponent();
-
             btn_back.Click += new EventHandler(this.back);
-
+            released_date.Format = DateTimePickerFormat.Custom;
+            released_date.CustomFormat = "dd MM yyyy hh:mm";
+            released_date.MaxDate = DateTime.Now;
         }
 
         private void btn_back_Click(object sender, EventArgs e)

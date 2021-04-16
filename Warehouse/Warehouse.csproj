@@ -118,6 +118,12 @@
     <Compile Include="Good_checkout_form.Designer.cs">
       <DependentUpon>Good_checkout_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Good_update_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Good_update_form.Designer.cs">
+      <DependentUpon>Good_update_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="IDatabase.cs" />
     <Compile Include="Main_Form.cs">
       <SubType>Form</SubType>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Good_checkout_form.resx">
       <DependentUpon>Good_checkout_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Good_update_form.resx">
+      <DependentUpon>Good_update_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
