@@ -36,8 +36,31 @@ namespace Warehouse
 
         private void get_name_Click(object sender, EventArgs e)
         {
-            var cube = Cube.GetWithId(int.Parse(name.Text));
-            
+            var cube = Cube.GetWithId(int.Parse(cube_id.Text));
+            name.Text = cube.Name;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            if (name.Text == string.Empty)
+                Err.SetError(name, "Name cannot be null!!");
+            else
+                Err.SetError(name, "");
+            if (cube_id.Text == string.Empty)
+                Err.SetError(cube_id, "Cube ID cannot be null!!");
+            else
+                Err.SetError(cube_id, "");
+     
+            var cube = Cube.GetWithId(int.Parse(cube_id.Text));
+            cube.Name = name.Text;
+            cube.Update();
+            MessageBox.Show("Cube updated succesfully!");
+        }
+
+        private void cube_id_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

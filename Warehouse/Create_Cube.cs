@@ -33,8 +33,11 @@ namespace Warehouse
         {
 
             var cube = new Cube(name.Text, false);
-
             cube.Save();
+            
+            MessageBox.Show("Cube created succesfully!");
+
+            
         }
     }
 }

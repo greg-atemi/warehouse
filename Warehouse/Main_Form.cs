@@ -19,13 +19,16 @@ namespace Warehouse
             update_client.Click += new EventHandler(this.update);
             delete_client.Click += new EventHandler(this.delete);
             store_good.Click += new EventHandler(this.store);
+            btnGreport.Click += new EventHandler(this.updateGood);
             Checkout_good.Click += new EventHandler(this.check);
-            update_good.Click += new EventHandler(this.up);
             delete_good.Click += new EventHandler(this.del);
             create_cube.Click += new EventHandler(this.create);
             update_cube.Click += new EventHandler(this.date);
             delete_cube.Click += new EventHandler(this.cube);
             btnExit.Click += new EventHandler(this.exit);
+            btnReport.Click += new EventHandler(this.rep);
+            btnGreport.Click += new EventHandler(this.grep);
+            btnCreport.Click += new EventHandler(this.crep);
     }
         private void register(object sender, EventArgs e)
         {
@@ -43,6 +46,12 @@ namespace Warehouse
             var form1 = new Update_Client();
             this.Hide();
             form1.Show();
+        }
+        private void updateGood(object sender, EventArgs e)
+        {
+            var form10 = new Good_update_form();
+            this.Hide();
+            form10.Show();
         }
         private void delete(object sender, EventArgs e)
         {
@@ -71,11 +80,6 @@ namespace Warehouse
             var form4 = new Good_checkout_form();
             this.Hide();
             form4.Show();
-        }
-
-        private void update_good_Click(object sender, EventArgs e)
-        {
-
         }
         private void up(object sender, EventArgs e)
         {
@@ -141,5 +145,38 @@ namespace Warehouse
         {
             this.Close();
          }
+
+        private void btnGreport_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void rep(object sender, EventArgs e)
+        {
+            var form10 = new ClientReport();
+            this.Hide();
+            form10.Show();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void grep(object sender, EventArgs e)
+        {
+            var form11 = new CubeReport();
+            this.Hide();
+            form11.Show();
+        }
+
+        private void btnCreport_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void crep(object sender, EventArgs e)
+        {
+            var form12 = new CubeReport();
+            this.Hide();
+            form12.Show();
+        }
     }
 }

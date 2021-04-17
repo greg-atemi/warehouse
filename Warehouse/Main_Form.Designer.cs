@@ -37,7 +37,7 @@ namespace Warehouse
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.delete_good = new System.Windows.Forms.Button();
-            this.update_good = new System.Windows.Forms.Button();
+            this.btnGreport = new System.Windows.Forms.Button();
             this.Checkout_good = new System.Windows.Forms.Button();
             this.store_good = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,6 +47,9 @@ namespace Warehouse
             this.create_cube = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreport = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -63,6 +66,7 @@ namespace Warehouse
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReport);
             this.groupBox1.Controls.Add(this.update_client);
             this.groupBox1.Controls.Add(this.delete_client);
             this.groupBox1.Controls.Add(this.register_client);
@@ -75,7 +79,7 @@ namespace Warehouse
             // 
             // update_client
             // 
-            this.update_client.Location = new System.Drawing.Point(439, 71);
+            this.update_client.Location = new System.Drawing.Point(291, 71);
             this.update_client.Name = "update_client";
             this.update_client.Size = new System.Drawing.Size(125, 49);
             this.update_client.TabIndex = 3;
@@ -85,13 +89,12 @@ namespace Warehouse
             // 
             // delete_client
             // 
-            this.delete_client.Location = new System.Drawing.Point(837, 71);
+            this.delete_client.Location = new System.Drawing.Point(606, 71);
             this.delete_client.Name = "delete_client";
             this.delete_client.Size = new System.Drawing.Size(127, 49);
             this.delete_client.TabIndex = 2;
             this.delete_client.Text = "Delete Client";
             this.delete_client.UseVisualStyleBackColor = true;
-            this.delete_client.Click += new System.EventHandler(this.delete);
             // 
             // register_client
             // 
@@ -101,7 +104,6 @@ namespace Warehouse
             this.register_client.TabIndex = 1;
             this.register_client.Text = "Register Client";
             this.register_client.UseVisualStyleBackColor = true;
-            this.register_client.Click += new System.EventHandler(this.register);
             // 
             // label2
             // 
@@ -114,8 +116,9 @@ namespace Warehouse
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.delete_good);
-            this.groupBox2.Controls.Add(this.update_good);
+            this.groupBox2.Controls.Add(this.btnGreport);
             this.groupBox2.Controls.Add(this.Checkout_good);
             this.groupBox2.Controls.Add(this.store_good);
             this.groupBox2.Controls.Add(this.label3);
@@ -127,27 +130,26 @@ namespace Warehouse
             // 
             // delete_good
             // 
-            this.delete_good.Location = new System.Drawing.Point(884, 78);
+            this.delete_good.Location = new System.Drawing.Point(694, 78);
             this.delete_good.Name = "delete_good";
             this.delete_good.Size = new System.Drawing.Size(136, 50);
             this.delete_good.TabIndex = 4;
             this.delete_good.Text = "Delete Good";
             this.delete_good.UseVisualStyleBackColor = true;
-            this.delete_good.Click += new System.EventHandler(this.delete_good_Click);
             // 
-            // update_good
+            // btnGreport
             // 
-            this.update_good.Location = new System.Drawing.Point(607, 78);
-            this.update_good.Name = "update_good";
-            this.update_good.Size = new System.Drawing.Size(136, 50);
-            this.update_good.TabIndex = 3;
-            this.update_good.Text = "Update Good";
-            this.update_good.UseVisualStyleBackColor = true;
-            this.update_good.Click += new System.EventHandler(this.update_good_Click);
+            this.btnGreport.Location = new System.Drawing.Point(881, 78);
+            this.btnGreport.Name = "btnGreport";
+            this.btnGreport.Size = new System.Drawing.Size(158, 50);
+            this.btnGreport.TabIndex = 3;
+            this.btnGreport.Text = "Generate Report";
+            this.btnGreport.UseVisualStyleBackColor = true;
+            this.btnGreport.Click += new System.EventHandler(this.btnGreport_Click);
             // 
             // Checkout_good
             // 
-            this.Checkout_good.Location = new System.Drawing.Point(317, 78);
+            this.Checkout_good.Location = new System.Drawing.Point(255, 78);
             this.Checkout_good.Name = "Checkout_good";
             this.Checkout_good.Size = new System.Drawing.Size(136, 50);
             this.Checkout_good.TabIndex = 2;
@@ -170,12 +172,13 @@ namespace Warehouse
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(450, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 20);
+            this.label3.Size = new System.Drawing.Size(109, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Gooods Center";
+            this.label3.Text = "Goods Center";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnCreport);
             this.groupBox3.Controls.Add(this.delete_cube);
             this.groupBox3.Controls.Add(this.update_cube);
             this.groupBox3.Controls.Add(this.create_cube);
@@ -188,7 +191,7 @@ namespace Warehouse
             // 
             // delete_cube
             // 
-            this.delete_cube.Location = new System.Drawing.Point(837, 73);
+            this.delete_cube.Location = new System.Drawing.Point(607, 73);
             this.delete_cube.Name = "delete_cube";
             this.delete_cube.Size = new System.Drawing.Size(129, 38);
             this.delete_cube.TabIndex = 3;
@@ -198,7 +201,7 @@ namespace Warehouse
             // 
             // update_cube
             // 
-            this.update_cube.Location = new System.Drawing.Point(439, 73);
+            this.update_cube.Location = new System.Drawing.Point(312, 73);
             this.update_cube.Name = "update_cube";
             this.update_cube.Size = new System.Drawing.Size(129, 38);
             this.update_cube.TabIndex = 2;
@@ -235,6 +238,35 @@ namespace Warehouse
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(859, 71);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(160, 49);
+            this.btnReport.TabIndex = 4;
+            this.btnReport.Text = "Generate Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(474, 78);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 50);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Update Good";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnCreport
+            // 
+            this.btnCreport.Location = new System.Drawing.Point(862, 73);
+            this.btnCreport.Name = "btnCreport";
+            this.btnCreport.Size = new System.Drawing.Size(158, 38);
+            this.btnCreport.TabIndex = 4;
+            this.btnCreport.Text = "Generate Report";
+            this.btnCreport.UseVisualStyleBackColor = true;
+            this.btnCreport.Click += new System.EventHandler(this.btnCreport_Click);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -268,7 +300,7 @@ namespace Warehouse
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button delete_good;
-        private System.Windows.Forms.Button update_good;
+        private System.Windows.Forms.Button btnGreport;
         private System.Windows.Forms.Button Checkout_good;
         private System.Windows.Forms.Button store_good;
         private System.Windows.Forms.Label label3;
@@ -278,5 +310,8 @@ namespace Warehouse
         private System.Windows.Forms.Button create_cube;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreport;
     }
 }

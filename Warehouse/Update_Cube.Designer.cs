@@ -29,6 +29,7 @@ namespace Warehouse
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
@@ -37,6 +38,8 @@ namespace Warehouse
             this.get_name = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cube_id = new System.Windows.Forms.TextBox();
+            this.Err = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,6 +77,7 @@ namespace Warehouse
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnBack
             // 
@@ -114,6 +118,11 @@ namespace Warehouse
             this.cube_id.Name = "cube_id";
             this.cube_id.Size = new System.Drawing.Size(198, 26);
             this.cube_id.TabIndex = 7;
+            this.cube_id.TextChanged += new System.EventHandler(this.cube_id_TextChanged);
+            // 
+            // Err
+            // 
+            this.Err.ContainerControl = this;
             // 
             // Update_Cube
             // 
@@ -130,6 +139,7 @@ namespace Warehouse
             this.Controls.Add(this.label1);
             this.Name = "Update_Cube";
             this.Text = "Update_Cube";
+            ((System.ComponentModel.ISupportInitialize)(this.Err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +155,6 @@ namespace Warehouse
         private System.Windows.Forms.Button get_name;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox cube_id;
+        private System.Windows.Forms.ErrorProvider Err;
     }
 }

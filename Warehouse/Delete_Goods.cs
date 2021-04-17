@@ -31,8 +31,17 @@ namespace Warehouse
 
         private void delete_Click(object sender, EventArgs e)
         {
-            var good = Good.GetWithId(int.Parse(name.Text));
-            good.Delete();
+            try
+            {
+                var good = Good.GetWithId(int.Parse(name.Text));
+                good.Delete();
+                MessageBox.Show("Good deleted.");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
         }
     }
 }

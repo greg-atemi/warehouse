@@ -35,15 +35,15 @@ namespace Warehouse
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btn_store = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.TextBox();
             this.recieved_date = new System.Windows.Forms.DateTimePicker();
             this.description = new System.Windows.Forms.RichTextBox();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.cube_id = new System.Windows.Forms.ComboBox();
-            this.client_id = new System.Windows.Forms.ComboBox();
+            this.cube = new System.Windows.Forms.ComboBox();
+            this.client_email = new System.Windows.Forms.ComboBox();
             this.log = new System.Windows.Forms.Label();
             this.Err = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_store = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.Err)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,18 +70,18 @@ namespace Warehouse
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(40, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Client ID";
+            this.label3.Text = "Client Email";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(40, 70);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Cube ID";
+            this.label4.Text = "Cube";
             // 
             // label6
             // 
@@ -91,17 +91,6 @@ namespace Warehouse
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "Recieved Date";
-            // 
-            // btn_store
-            // 
-            this.btn_store.Location = new System.Drawing.Point(696, 283);
-            this.btn_store.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_store.Name = "btn_store";
-            this.btn_store.Size = new System.Drawing.Size(101, 43);
-            this.btn_store.TabIndex = 5;
-            this.btn_store.Text = "Store Good";
-            this.btn_store.UseVisualStyleBackColor = true;
-            this.btn_store.Click += new System.EventHandler(this.btn_store_Click);
             // 
             // name
             // 
@@ -113,7 +102,6 @@ namespace Warehouse
             // 
             // recieved_date
             // 
-
             this.recieved_date.CustomFormat = "";
             this.recieved_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.recieved_date.Location = new System.Drawing.Point(193, 140);
@@ -131,32 +119,21 @@ namespace Warehouse
             this.description.TabIndex = 11;
             this.description.Text = "";
             // 
-            // btn_back
+            // cube
             // 
-            this.btn_back.Location = new System.Drawing.Point(696, 365);
-            this.btn_back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(101, 43);
-            this.btn_back.TabIndex = 12;
-            this.btn_back.Text = "Back";
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            this.cube.FormattingEnabled = true;
+            this.cube.Location = new System.Drawing.Point(193, 70);
+            this.cube.Name = "cube";
+            this.cube.Size = new System.Drawing.Size(227, 21);
+            this.cube.TabIndex = 13;
             // 
-            // cube_id
+            // client_email
             // 
-            this.cube_id.FormattingEnabled = true;
-            this.cube_id.Location = new System.Drawing.Point(193, 70);
-            this.cube_id.Name = "cube_id";
-            this.cube_id.Size = new System.Drawing.Size(227, 21);
-            this.cube_id.TabIndex = 13;
-            // 
-            // client_id
-            // 
-            this.client_id.FormattingEnabled = true;
-            this.client_id.Location = new System.Drawing.Point(193, 106);
-            this.client_id.Name = "client_id";
-            this.client_id.Size = new System.Drawing.Size(227, 21);
-            this.client_id.TabIndex = 14;
+            this.client_email.FormattingEnabled = true;
+            this.client_email.Location = new System.Drawing.Point(193, 106);
+            this.client_email.Name = "client_email";
+            this.client_email.Size = new System.Drawing.Size(227, 21);
+            this.client_email.TabIndex = 14;
             // 
             // log
             // 
@@ -171,18 +148,37 @@ namespace Warehouse
             // 
             this.Err.ContainerControl = this;
             // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(40, 326);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(101, 43);
+            this.btn_back.TabIndex = 28;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = true;
+            // 
+            // btn_store
+            // 
+            this.btn_store.Location = new System.Drawing.Point(316, 326);
+            this.btn_store.Name = "btn_store";
+            this.btn_store.Size = new System.Drawing.Size(101, 43);
+            this.btn_store.TabIndex = 27;
+            this.btn_store.Text = "Store Good";
+            this.btn_store.UseVisualStyleBackColor = true;
+            this.btn_store.Click += new System.EventHandler(this.btn_store_Click_1);
+            // 
             // Good_record_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 398);
-            this.Controls.Add(this.client_id);
-            this.Controls.Add(this.cube_id);
+            this.ClientSize = new System.Drawing.Size(483, 407);
             this.Controls.Add(this.btn_back);
+            this.Controls.Add(this.btn_store);
+            this.Controls.Add(this.client_email);
+            this.Controls.Add(this.cube);
             this.Controls.Add(this.description);
             this.Controls.Add(this.recieved_date);
             this.Controls.Add(this.name);
-            this.Controls.Add(this.btn_store);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -196,6 +192,9 @@ namespace Warehouse
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button btn_store;
+        private System.Windows.Forms.Button btn_back;
+
         private System.Windows.Forms.Label log;
 
         #endregion
@@ -205,13 +204,11 @@ namespace Warehouse
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_store;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.DateTimePicker recieved_date;
         private System.Windows.Forms.RichTextBox description;
-        private System.Windows.Forms.Button btn_back;
-        private System.Windows.Forms.ComboBox cube_id;
-        private System.Windows.Forms.ComboBox client_id;
+        private System.Windows.Forms.ComboBox cube;
+        private System.Windows.Forms.ComboBox client_email;
         private System.Windows.Forms.ErrorProvider Err;
     }
 }

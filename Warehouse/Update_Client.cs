@@ -45,6 +45,8 @@ namespace Warehouse
         {
             var client = new Client(name.Text, email.Text, phone_number.Text);
             client.Update();
+            MessageBox.Show("Client updated succesfully!");
+
         }
     }
 }

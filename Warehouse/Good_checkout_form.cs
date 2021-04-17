@@ -17,9 +17,10 @@ namespace Warehouse
         public Good_checkout_form()
         {
             InitializeComponent();
-
             btn_back.Click += new EventHandler(this.back);
-
+            released_date.Format = DateTimePickerFormat.Custom;
+            released_date.CustomFormat = "dd MM yyyy hh:mm";
+            released_date.MaxDate = DateTime.Now;
         }
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -60,8 +61,17 @@ namespace Warehouse
             else
                 Err.SetError(released_date, "");
 
-            good.ReleasedDate = released_date.Value;
-            good.Update();
+            try
+            {
+                good.ReleasedDate = released_date.Value;
+                good.Update();
+                MessageBox.Show("Good checked out successfully.");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
 
         }
 
@@ -78,12 +88,20 @@ namespace Warehouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            good = Good.GetWithId(int.Parse(good_id.Text));
-            name.Text = good.Name;
-            cube_id.Text = good.CubeId.ToString();
-            client_id.Text = good.ClientId.ToString();
-            received_date.Text = good.ReceivedDate.ToString();
-            description.Text = good.Description;
+
+            try
+            {
+                good = Good.GetWithId(int.Parse(good_id.Text));
+                name.Text = good.Name;
+                cube_id.Text = good.CubeId.ToString();
+                client_id.Text = good.ClientId.ToString();
+                received_date.Text = good.ReceivedDate.ToString();
+                description.Text = good.Description;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
