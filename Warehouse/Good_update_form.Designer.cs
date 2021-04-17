@@ -56,7 +56,7 @@ namespace Warehouse
             this.client_email.FormattingEnabled = true;
             this.client_email.Location = new System.Drawing.Point(215, 143);
             this.client_email.Name = "client_email";
-            this.client_email.Size = new System.Drawing.Size(227, 21);
+            this.client_email.Size = new System.Drawing.Size(227, 25);
             this.client_email.TabIndex = 38;
             // 
             // cube_id
@@ -64,8 +64,9 @@ namespace Warehouse
             this.cube_id.FormattingEnabled = true;
             this.cube_id.Location = new System.Drawing.Point(215, 107);
             this.cube_id.Name = "cube_id";
-            this.cube_id.Size = new System.Drawing.Size(227, 21);
+            this.cube_id.Size = new System.Drawing.Size(227, 25);
             this.cube_id.TabIndex = 37;
+            //is.cube_id.SelectedIndexChanged += new System.EventHandler(this.cube_id_SelectedIndexChanged);
             // 
             // description
             // 
@@ -82,7 +83,7 @@ namespace Warehouse
             this.recieved_date.Location = new System.Drawing.Point(215, 177);
             this.recieved_date.Margin = new System.Windows.Forms.Padding(2);
             this.recieved_date.Name = "recieved_date";
-            this.recieved_date.Size = new System.Drawing.Size(227, 20);
+            this.recieved_date.Size = new System.Drawing.Size(227, 23);
             this.recieved_date.TabIndex = 35;
             this.recieved_date.Value = new System.DateTime(2021, 4, 15, 16, 10, 20, 0);
             // 
@@ -90,7 +91,7 @@ namespace Warehouse
             // 
             this.name.Location = new System.Drawing.Point(215, 72);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(227, 20);
+            this.name.Size = new System.Drawing.Size(227, 23);
             this.name.TabIndex = 34;
             // 
             // label6
@@ -98,7 +99,7 @@ namespace Warehouse
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(62, 177);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(101, 17);
             this.label6.TabIndex = 33;
             this.label6.Text = "Recieved Date";
             // 
@@ -107,7 +108,7 @@ namespace Warehouse
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(62, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 32;
             this.label3.Text = "Client Email";
             // 
@@ -116,7 +117,7 @@ namespace Warehouse
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(62, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.Size = new System.Drawing.Size(58, 17);
             this.label4.TabIndex = 31;
             this.label4.Text = "Cube ID";
             // 
@@ -125,7 +126,7 @@ namespace Warehouse
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(62, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(79, 17);
             this.label2.TabIndex = 30;
             this.label2.Text = "Description";
             // 
@@ -134,7 +135,7 @@ namespace Warehouse
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(62, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.Size = new System.Drawing.Size(84, 17);
             this.label1.TabIndex = 29;
             this.label1.Text = "Good Name";
             // 
@@ -176,7 +177,7 @@ namespace Warehouse
             // 
             this.good_id.Location = new System.Drawing.Point(215, 32);
             this.good_id.Name = "good_id";
-            this.good_id.Size = new System.Drawing.Size(227, 20);
+            this.good_id.Size = new System.Drawing.Size(227, 23);
             this.good_id.TabIndex = 44;
             // 
             // label5
@@ -184,13 +185,13 @@ namespace Warehouse
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(62, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 43;
             this.label5.Text = "Good ID";
             // 
             // Good_update_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 425);
             this.Controls.Add(this.good_id);
