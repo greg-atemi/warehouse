@@ -95,8 +95,9 @@ namespace Warehouse
             try
             {
                 good = Good.GetWithId(int.Parse(good_id.Text));
+                Console.WriteLine("hey");
                 name.Text = good.Name;
-                cube_id.Text = good.CubeId.ToString();
+                cube_id.Text = good.CubeId + " ." + good.Name;
                 client_email.Text = good.ClientId.ToString();
                 recieved_date.Text = good.ReceivedDate.ToString();
                 description.Text = good.Description;

@@ -14,6 +14,7 @@ namespace Warehouse
     {
         private List<Client> clients = Client.GetAll();
         private List<Cube> cubes = Cube.GetAll();
+
         public Good_record_form()
         {
             InitializeComponent();
@@ -31,25 +32,21 @@ namespace Warehouse
 
             foreach (var cube in cubes)
             {
-                this.cube.Items.Add(cube.Id +". "+cube.Name);
+                this.cube.Items.Add(cube.Id + ". " + cube.Name);
             }
         }
 
         private void Good_record_form_Load(object sender, EventArgs e)
         {
-
         }
 
         private void btn_store_Click(object sender, EventArgs e)
         {
-
-            
         }
-     
+
 
         private void name_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void InputValidator(object sender, KeyPressEventArgs e)
@@ -57,10 +54,10 @@ namespace Warehouse
             TextBox text;
             if (sender is TextBox)
             {
-                text = (TextBox)sender;
+                text = (TextBox) sender;
                 if (text.Name == name.Name)
                 {
-                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
+                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char) 8)
                         e.Handled = false;
                     else if (e.KeyChar == ' ')
                         e.Handled = false;
@@ -68,13 +65,12 @@ namespace Warehouse
                         e.Handled = true;
                 }
             }
-
         }
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-
         }
+
         private void back(object sender, EventArgs e)
         {
             var form = new Main_Form();
@@ -97,21 +93,39 @@ namespace Warehouse
                 Err.SetError(name, "Name cannot be null!!");
             if (recieved_date.Text == string.Empty)
                 Err.SetError(name, "Name cannot be null!!");
-            
-            var cubeId = cube.Text.Split('.')[0];
-            var good = new Good(name.Text,description.Text,  recieved_date.Value, client_email.Text, int.Parse(cubeId));
-            good.Save();
-            name.Text = "";
-            cube.SelectedIndex = -1;
-            cube.SelectedIndex = -1;
-            client_email.SelectedIndex = -1;
-            recieved_date.Text = "";
-            description.Text = "";
-            MessageBox.Show("Your good has been stored successfully", 
-                            "Success",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+
+            try
+            {
+                var cubeId = cube.Text.Split('.')[0];
+                var good = new Good(name.Text, description.Text, recieved_date.Value, client_email.Text,
+                    int.Parse(cubeId));
+                var deriveCube = Cube.GetWithId(int.Parse(cubeId));
+
+                if (deriveCube.Occupied)
+                {
+                    throw new Exception("Cube occupied please select another cube.");
+                }
+
+                MessageBox.Show(deriveCube.Occupied.ToString());
+                deriveCube.Occupied = true;
+                deriveCube.Update();
+                good.Save();
+                name.Text = "";
+                cube.SelectedIndex = -1;
+                cube.SelectedIndex = -1;
+                client_email.SelectedIndex = -1;
+                recieved_date.Text = "";
+                description.Text = "";
+                MessageBox.Show("Your good has been stored successfully",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }
-
