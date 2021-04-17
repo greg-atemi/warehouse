@@ -181,6 +181,7 @@ namespace Warehouse
             catch (Exception e)
             {
                 myDb.Connection.Close();
+                myDb.Connection.Close();
                 throw;
             }
             

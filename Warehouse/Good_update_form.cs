@@ -33,7 +33,7 @@ namespace Warehouse
 
             foreach (var cube in cubes)
             {
-                this.cube_id.Items.Add(cube.Id + ". " + cube.Name);
+                cube_id.Items.Add(cube.Id + ". " + cube.Name);
             }
         }
 
@@ -74,7 +74,7 @@ namespace Warehouse
                     good.Update();
                     MessageBox.Show("Good updated successfully.");
                     name.Text = "";
-                    cube_id.SelectedIndex = -1;
+                    good_id.Text = "";
                     cube_id.SelectedIndex = -1;
                     client_email.SelectedIndex = -1;
                     recieved_date.Text = "";
@@ -95,9 +95,11 @@ namespace Warehouse
             try
             {
                 good = Good.GetWithId(int.Parse(good_id.Text));
+                var cube1 = cubes.Find(cubeLocal => cubeLocal.Id == good.CubeId);
+                
                 name.Text = good.Name;
-                cube_id.Text = good.CubeId.ToString();
-                client_email.Text = good.ClientId.ToString();
+                cube_id.Text = cube1.Id + ". " + cube1.Name;
+                client_email.Text = good.ClientId;
                 recieved_date.Text = good.ReceivedDate.ToString();
                 description.Text = good.Description;
             }

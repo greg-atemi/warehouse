@@ -178,5 +178,12 @@ namespace Warehouse
             this.Hide();
             form12.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form13 = new Good_update_form();
+            this.Hide();
+            form13.Show();
+        }
     }
 }
