@@ -105,8 +105,7 @@ namespace Warehouse
                 {
                     throw new Exception("Cube occupied please select another cube.");
                 }
-
-                MessageBox.Show(deriveCube.Occupied.ToString());
+                
                 deriveCube.Occupied = true;
                 deriveCube.Update();
                 good.Save();
