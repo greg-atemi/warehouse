@@ -74,7 +74,7 @@ namespace Warehouse
                     good.Update();
                     MessageBox.Show("Good updated successfully.");
                     name.Text = "";
-                    cube_id.SelectedIndex = -1;
+                    good_id.Text = "";
                     cube_id.SelectedIndex = -1;
                     client_email.SelectedIndex = -1;
                     recieved_date.Text = "";

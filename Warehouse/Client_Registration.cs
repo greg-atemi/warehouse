@@ -18,15 +18,9 @@ namespace Warehouse
             btnBack.Click += new EventHandler(this.back);
         }
 
-        private void back_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         private void back(object sender, EventArgs e)
         {
             var form = new Main_Form();
@@ -49,11 +43,17 @@ namespace Warehouse
                 Err.SetError(phone, "phone cannot be null!!");
             else
                 Err.SetError(phone, "");
-           
-           var newClient = new Client(name.Text, email.Text, phone.Text);
-           newClient.Save();
-           
-            MessageBox.Show("Client registered succesfully!");
+            try
+            {
+                var newClient = new Client(name.Text, email.Text, phone.Text);
+                newClient.Save();
+
+                MessageBox.Show("Client registered succesfully!");
+            }
+            catch
+            {
+                MessageBox.Show("Please fill in the requred fields");
+            }
         }
     }
 }

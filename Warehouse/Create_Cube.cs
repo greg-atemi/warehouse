@@ -18,10 +18,6 @@ namespace Warehouse
             btnBack.Click += new EventHandler(this.back);
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
         private void back(object sender, EventArgs e)
         {
             var form = new Main_Form();
@@ -32,10 +28,22 @@ namespace Warehouse
         private void createcube_Click(object sender, EventArgs e)
         {
 
-            var cube = new Cube(name.Text, false);
-            cube.Save();
-            
-            MessageBox.Show("Cube created succesfully!");
+            if (name.Text == string.Empty)
+                Err.SetError(name, "Name cannot be null!!");
+            else
+                Err.SetError(name, "");
+
+            try
+            {
+                var cube = new Cube(name.Text, false);
+                cube.Save();
+
+                MessageBox.Show("Cube created succesfully!");
+            }
+            catch
+            {
+                MessageBox.Show("Please enter name");
+            }
 
             
         }

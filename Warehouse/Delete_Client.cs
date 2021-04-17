@@ -18,16 +18,6 @@ namespace Warehouse
             btnBack.Click += new EventHandler(this.back);
         }
 
-        private void back_Click(object sender, EventArgs e)
-        {
-
-        }
-       
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
         private void back(object sender, EventArgs e)
         { 
             var form = new Main_Form();
@@ -36,16 +26,23 @@ namespace Warehouse
             
         }
 
-        private void client_id_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void delete_Click(object sender, EventArgs e)
         {
-            var client = Client.GetWithEmail(client_id.Text);
-            client.Delete();
-            MessageBox.Show("Client deleted!");
+            if (client_id.Text == string.Empty)
+                Err.SetError(client_id, "ID cannot be null!!");
+            else
+                Err.SetError(client_id, "");
+            try
+            {
+                var client = Client.GetWithEmail(client_id.Text);
+                client.Delete();
+                MessageBox.Show("Client deleted!");
+            }
+            catch
+            {
+                MessageBox.Show("Please fill in the id");
+            }
 
         }
     }
