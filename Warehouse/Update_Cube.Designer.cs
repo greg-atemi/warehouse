@@ -59,7 +59,6 @@ namespace Warehouse
             this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // name
             // 
@@ -88,7 +87,6 @@ namespace Warehouse
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // get_name
             // 
