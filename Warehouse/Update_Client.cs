@@ -18,15 +18,6 @@ namespace Warehouse
             btnBack.Click += new EventHandler(this.back);
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
         private void back(object sender, EventArgs e)
         {
             var form = new Main_Form();
@@ -43,9 +34,34 @@ namespace Warehouse
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var client = new Client(name.Text, email.Text, phone_number.Text);
-            client.Update();
-            MessageBox.Show("Client updated succesfully!");
+            if (name.Text == string.Empty)
+                Err.SetError(name, "Name cannot be null!!");
+            else
+                Err.SetError(name, "");
+            if (email.Text == string.Empty)
+                Err.SetError(email, "email cannot be null!!");
+            else
+                Err.SetError(email, "");
+            if (phone_number.Text == string.Empty)
+                Err.SetError(phone_number, "phone cannot be null!!");
+            else
+                Err.SetError(phone_number, "");
+            try
+            {
+                var client = new Client(name.Text, email.Text, phone_number.Text);
+                client.Update();
+
+                MessageBox.Show("Client updated succesfully!");
+            }
+            catch
+            {
+                MessageBox.Show("Please fill in the required field!");
+            }
+
+        }
+
+        private void name_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

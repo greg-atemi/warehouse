@@ -18,15 +18,7 @@ namespace Warehouse
             btnBack.Click += new EventHandler(this.back);
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         private void back(object sender, EventArgs e)
         {
             var form = new Main_Form();
@@ -51,11 +43,17 @@ namespace Warehouse
                 Err.SetError(cube_id, "Cube ID cannot be null!!");
             else
                 Err.SetError(cube_id, "");
-     
-            var cube = Cube.GetWithId(int.Parse(cube_id.Text));
-            cube.Name = name.Text;
-            cube.Update();
-            MessageBox.Show("Cube updated succesfully!");
+            try
+            {
+                var cube = Cube.GetWithId(int.Parse(cube_id.Text));
+                cube.Name = name.Text;
+                cube.Update();
+                MessageBox.Show("Cube updated succesfully!");
+            }
+            catch
+            {
+                MessageBox.Show("Please fill in the required fields");
+            }
         }
 
         private void cube_id_TextChanged(object sender, EventArgs e)

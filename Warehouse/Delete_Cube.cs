@@ -18,10 +18,6 @@ namespace Warehouse
             btnBack.Click += new EventHandler(this.back);
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
         private void back(object sender, EventArgs e)
         {
             var form = new Main_Form();
@@ -31,9 +27,20 @@ namespace Warehouse
 
         private void delete_Click(object sender, EventArgs e)
         {
-            var cube = Cube.GetWithId(int.Parse(cube_id.Text));
-            cube.Delete();
-            MessageBox.Show("Cube deleted!");
+            if (cube_id.Text == string.Empty)
+                Err.SetError(cube_id, "cube_id cannot be null!!");
+            else
+                Err.SetError(cube_id, "");
+            try
+            {
+                var cube = Cube.GetWithId(int.Parse(cube_id.Text));
+                cube.Delete();
+                MessageBox.Show("Cube deleted!");
+            }
+            catch
+            {
+                MessageBox.Show("please fill in the cube_id");
+            }
 
         }
     }
