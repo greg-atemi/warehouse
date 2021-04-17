@@ -26,7 +26,7 @@ namespace Warehouse
             AttachConsole(ATTACH_PARENT_PROCESS);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClientReport());
+            Application.Run(new Main_Form());
             
         }
     }

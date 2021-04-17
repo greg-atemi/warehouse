@@ -36,26 +36,10 @@ namespace Warehouse
 
         private void btn_release_Click(object sender, EventArgs e)
         {
-            if (name.Text == string.Empty)
-                Err.SetError(name, "Name cannot be null!!");
-            else
-                Err.SetError(name, "");
-            if (cube_id.Text == string.Empty)
-                Err.SetError(cube_id, "Cube ID cannot be null!!");
+            if (good_id.Text == string.Empty)
+                Err.SetError(good_id, "Good ID cannot be null!!");
             else
                 Err.SetError(cube_id, "");
-            if (good_id.Text == string.Empty)
-                Err.SetError(good_id, "Cube ID cannot be null!!");
-            else
-                Err.SetError(good_id, "");
-            if (client_id.Text == string.Empty)
-                Err.SetError(client_id, "Client ID cannot be null!!");
-            else
-                Err.SetError(client_id, "");
-            if (received_date.Text == string.Empty)
-                Err.SetError(received_date, "Received date cannot be null!!");
-            else
-                Err.SetError(received_date, "");
             if (released_date.Text == string.Empty)
                 Err.SetError(released_date, "Released date cannot be null!!");
             else
@@ -66,6 +50,13 @@ namespace Warehouse
                 good.ReleasedDate = released_date.Value;
                 good.Update();
                 MessageBox.Show("Good checked out successfully.");
+                good_id.Text = "";
+                name.Text = "";
+                cube_id.Text = "";
+                client_id.Text = "";
+                received_date.Text = "";
+                released_date.Text = "";
+                description.Text = "";
             }
             catch (Exception exception)
             {

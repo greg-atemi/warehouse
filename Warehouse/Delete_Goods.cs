@@ -36,6 +36,7 @@ namespace Warehouse
                 var good = Good.GetWithId(int.Parse(name.Text));
                 good.Delete();
                 MessageBox.Show("Good deleted.");
+                name.Text = "";
             }
             catch (Exception exception)
             {

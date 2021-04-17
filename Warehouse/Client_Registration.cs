@@ -36,8 +36,22 @@ namespace Warehouse
 
         private void register_Click(object sender, EventArgs e)
         {
-            var newClient = new Client(name.Text, email.Text, phone.Text);
-            newClient.Save();
+
+            if (name.Text == string.Empty)
+                Err.SetError(name, "Name cannot be null!!");
+            else
+                Err.SetError(name, "");
+            if (email.Text == string.Empty)
+                Err.SetError(email, "email cannot be null!!");
+            else
+                Err.SetError(email, "");
+            if (phone.Text == string.Empty)
+                Err.SetError(phone, "phone cannot be null!!");
+            else
+                Err.SetError(phone, "");
+           
+           var newClient = new Client(name.Text, email.Text, phone.Text);
+           newClient.Save();
            
             MessageBox.Show("Client registered succesfully!");
         }
