@@ -48,6 +48,10 @@ namespace Warehouse
             try
             {
                 good.ReleasedDate = released_date.Value;
+
+                var cube = Cube.GetWithId(good.CubeId);
+                cube.Occupied = false;
+                cube.Update();
                 good.Update();
                 MessageBox.Show("Good checked out successfully.");
                 good_id.Text = "";
