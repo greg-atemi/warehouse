@@ -32,7 +32,10 @@ namespace Warehouse
 
             foreach (var cube in cubes)
             {
-                this.cube.Items.Add(cube.Id + ". " + cube.Name);
+                if (!cube.Occupied)
+                {
+                    this.cube.Items.Add(cube.Id + ". " + cube.Name);    
+                }
             }
         }
 
@@ -122,7 +125,7 @@ namespace Warehouse
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK,
+                MessageBox.Show("Good name cannot be null!!", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }

@@ -19,13 +19,14 @@ namespace Warehouse
         public Good_update_form()
         {
             InitializeComponent();
-            cube_id.DropDownStyle = ComboBoxStyle.DropDownList;
+            cube_id_current.ReadOnly = true;
+            cube_id_transfer_to.DropDownStyle = ComboBoxStyle.DropDownList;
             client_email.DropDownStyle = ComboBoxStyle.DropDownList;
             recieved_date.Format = DateTimePickerFormat.Custom;
             recieved_date.CustomFormat = "dd MM yyyy hh:mm";
             recieved_date.MaxDate = DateTime.Now;
             btn_back.Click += new EventHandler(this.back);
-            name.KeyPress += new KeyPressEventHandler(this.InputValidator);
+            button1.Click += new EventHandler(this.button1_Click);
             foreach (var client in clients)
             {
                 client_email.Items.Add(client.Email);
@@ -33,24 +34,9 @@ namespace Warehouse
 
             foreach (var cube in cubes)
             {
-                cube_id.Items.Add(cube.Id + ". " + cube.Name);
-            }
-        }
-
-        private void InputValidator(object sender, KeyPressEventArgs e)
-        {
-            TextBox text;
-            if (sender is TextBox)
-            {
-                text = (TextBox) sender;
-                if (text.Name == name.Name)
+                if (!cube.Occupied)
                 {
-                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char) 8)
-                        e.Handled = false;
-                    else if (e.KeyChar == ' ')
-                        e.Handled = false;
-                    else
-                        e.Handled = true;
+                    cube_id_transfer_to.Items.Add(cube.Id + ". " + cube.Name);
                 }
             }
         }
@@ -62,20 +48,32 @@ namespace Warehouse
         }
         private void btn_update_Click(object sender, EventArgs e)
             {
-
                 try
                 {
-                    var cubeId = cube_id.Text.Split('.')[0];
-                    good.Name = name.Text;
+                    
+                    var good = Good.GetWithId(int.Parse(good_id.Text));
+                    
+                    var cubeId = cube_id_transfer_to.Text.Split('.')[0];
+                    
+                    /*
+                    var cubeId = cube_id_current.Text;
                     good.CubeId = int.Parse(cubeId);
+                    */
+                    good.Name = name.Text;
+                    good.Id = (int.Parse(good_id.Text));
+                    @catch.Text = "HAPA!";
+                    good.CubeId = (int.Parse(cubeId));
+                    
                     good.ClientId = client_email.Text;
                     good.ReceivedDate = recieved_date.Value;
                     good.Description = description.Text;
+                    
                     good.Update();
                     MessageBox.Show("Good updated successfully.");
                     name.Text = "";
                     good_id.Text = "";
-                    cube_id.SelectedIndex = -1;
+                    cube_id_current.Text = "";
+                    cube_id_transfer_to.SelectedIndex = -1;
                     client_email.SelectedIndex = -1;
                     recieved_date.Text = "";
                     description.Text = "";
@@ -84,21 +82,16 @@ namespace Warehouse
                 {
                     MessageBox.Show(exception.Message);
                 }
-
-                
-                
             }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             try
             {
                 good = Good.GetWithId(int.Parse(good_id.Text));
                 var cube1 = cubes.Find(cubeLocal => cubeLocal.Id == good.CubeId);
-                
                 name.Text = good.Name;
-                cube_id.Text = cube1.Id + ". " + cube1.Name;
+                cube_id_current.Text = cube1.Name;
                 client_email.Text = good.ClientId;
                 recieved_date.Text = good.ReceivedDate.ToString();
                 description.Text = good.Description;
@@ -107,7 +100,6 @@ namespace Warehouse
             {
                 MessageBox.Show(exception.Message);
             }
-            
         }
     }
-    }
+}

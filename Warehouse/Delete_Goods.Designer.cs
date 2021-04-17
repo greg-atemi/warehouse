@@ -38,26 +38,27 @@ namespace Warehouse
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 151);
+            this.label1.Location = new System.Drawing.Point(97, 123);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Good Name";
+            this.label1.Text = "Good ID";
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(316, 154);
-            this.name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.name.Location = new System.Drawing.Point(237, 125);
+            this.name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(188, 22);
+            this.name.Size = new System.Drawing.Size(142, 20);
             this.name.TabIndex = 1;
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(251, 287);
-            this.delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.delete.Location = new System.Drawing.Point(188, 233);
+            this.delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(155, 52);
+            this.delete.Size = new System.Drawing.Size(116, 42);
             this.delete.TabIndex = 2;
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = true;
@@ -65,10 +66,10 @@ namespace Warehouse
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(569, 287);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack.Location = new System.Drawing.Point(427, 233);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(155, 52);
+            this.btnBack.Size = new System.Drawing.Size(116, 42);
             this.btnBack.TabIndex = 3;
             this.btnBack.Text = "back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -76,17 +77,16 @@ namespace Warehouse
             // 
             // Delete_Goods
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 522);
+            this.ClientSize = new System.Drawing.Size(783, 424);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.name);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Delete_Goods";
             this.Text = "Delete_Goods";
-          //  this.Load += new System.EventHandler(this.Delete_Goods_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
