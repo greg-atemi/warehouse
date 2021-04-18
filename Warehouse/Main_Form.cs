@@ -19,7 +19,6 @@ namespace Warehouse
             update_client.Click += new EventHandler(this.update);
             delete_client.Click += new EventHandler(this.delete);
             store_good.Click += new EventHandler(this.store);
-            btnGreport.Click += new EventHandler(this.updateGood);
             Checkout_good.Click += new EventHandler(this.check);
             delete_good.Click += new EventHandler(this.del);
             create_cube.Click += new EventHandler(this.create);
@@ -153,7 +152,6 @@ namespace Warehouse
         private void rep(object sender, EventArgs e)
         {
             var form10 = new ClientReport();
-            this.Hide();
             form10.Show();
         }
 
@@ -163,8 +161,7 @@ namespace Warehouse
         }
         private void grep(object sender, EventArgs e)
         {
-            var form11 = new CubeReport();
-            this.Hide();
+            var form11 = new GoodReport();
             form11.Show();
         }
 
@@ -175,7 +172,6 @@ namespace Warehouse
         private void crep(object sender, EventArgs e)
         {
             var form12 = new CubeReport();
-            this.Hide();
             form12.Show();
         }
 
