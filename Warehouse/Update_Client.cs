@@ -48,14 +48,17 @@ namespace Warehouse
                 Err.SetError(phone_number, "");
             try
             {
+                if (name.Text == String.Empty || email.Text == String.Empty || phone_number.Text == String.Empty)
+                {
+                    throw new Exception("All fields must be filled!!");
+                }
                 var client = new Client(name.Text, email.Text, phone_number.Text);
                 client.Update();
-
                 MessageBox.Show("Client updated succesfully!");
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Please fill in the required field!");
+                MessageBox.Show(ex.Message);
             }
 
         }

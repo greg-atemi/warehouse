@@ -29,19 +29,23 @@ namespace Warehouse
 
         private void delete_Click(object sender, EventArgs e)
         {
-            if (client_id.Text == string.Empty)
-                Err.SetError(client_id, "ID cannot be null!!");
-            else
-                Err.SetError(client_id, "");
+            
             try
             {
+                if (client_id.Text == string.Empty)
+                {
+                    Err.SetError(client_id, "ID cannot be empty!!");
+                    throw new Exception("ID cannot be empty!!");
+                }
+                else
+                    Err.SetError(client_id, "");
                 var client = Client.GetWithEmail(client_id.Text);
                 client.Delete();
                 MessageBox.Show("Client deleted!");
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Please fill in the id");
+                MessageBox.Show(ex.Message);
             }
 
         }
