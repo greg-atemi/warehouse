@@ -50,24 +50,18 @@ namespace Warehouse
             {
                 try
                 {
-                    
                     var good = Good.GetWithId(int.Parse(good_id.Text));
-                    
                     var cubeId = cube_id_transfer_to.Text.Split('.')[0];
-                    
                     /*
                     var cubeId = cube_id_current.Text;
                     good.CubeId = int.Parse(cubeId);
                     */
                     good.Name = name.Text;
                     good.Id = (int.Parse(good_id.Text));
-                    @catch.Text = "HAPA!";
                     good.CubeId = (int.Parse(cubeId));
-                    
                     good.ClientId = client_email.Text;
                     good.ReceivedDate = recieved_date.Value;
                     good.Description = description.Text;
-                    
                     good.Update();
                     MessageBox.Show("Good updated successfully.");
                     name.Text = "";

@@ -24,7 +24,6 @@ namespace Warehouse
             recieved_date.CustomFormat = "dd MM yyyy hh:mm";
             recieved_date.MaxDate = DateTime.Now;
             btn_back.Click += new EventHandler(this.back);
-            //name.KeyPress += new KeyPressEventHandler(this.InputValidator);
             foreach (var client in clients)
             {
                 client_email.Items.Add(client.Email);
@@ -52,24 +51,6 @@ namespace Warehouse
         {
         }
 
-        private void InputValidator(object sender, KeyPressEventArgs e)
-        {
-            TextBox text;
-            if (sender is TextBox)
-            {
-                text = (TextBox) sender;
-                if (text.Name == name.Name)
-                {
-                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char) 8)
-                        e.Handled = false;
-                    else if (e.KeyChar == ' ')
-                        e.Handled = false;
-                    else
-                        e.Handled = true;
-                }
-            }
-        }
-
         private void btn_back_Click(object sender, EventArgs e)
         {
         }
@@ -88,17 +69,16 @@ namespace Warehouse
 
         private void btn_store_Click_1(object sender, EventArgs e)
         {
-            if (name.Text == string.Empty)
-                Err.SetError(name, "Name cannot be null!!");
-            if (cube.Text == string.Empty)
-                Err.SetError(name, "Cube ID cannot be null!!");
-            if (client_email.Text == string.Empty)
-                Err.SetError(name, "Name cannot be null!!");
-            if (recieved_date.Text == string.Empty)
-                Err.SetError(name, "Name cannot be null!!");
-
             try
             {
+                if (name.Text == string.Empty)
+                    Err.SetError(name, "Name cannot be null!!");
+                if (cube.Text == string.Empty)
+                    Err.SetError(name, "Cube ID cannot be null!!");
+                if (client_email.Text == string.Empty)
+                    Err.SetError(name, "Name cannot be null!!");
+                if (recieved_date.Text == string.Empty)
+                    Err.SetError(name, "Name cannot be null!!");
                 var cubeId = cube.Text.Split('.')[0];
                 var good = new Good(name.Text, description.Text, recieved_date.Value, client_email.Text,
                     int.Parse(cubeId));
@@ -108,7 +88,23 @@ namespace Warehouse
                 {
                     throw new Exception("Cube occupied please select another cube.");
                 }
-                
+
+                if (cube.Text == string.Empty)
+                {
+                    throw new Exception("Cube ID cannot be null!!");
+                }
+                if (client_email.Text == string.Empty)
+                {
+                    throw new Exception("Client Email cannot be null!!");
+                }
+                if (recieved_date.Text == string.Empty)
+                {
+                    throw new Exception("Received date cannot be null!!");
+                }
+                if (name.Text == string.Empty)
+                {
+                    throw new Exception("Name cannot be null!!");
+                }
                 deriveCube.Occupied = true;
                 deriveCube.Update();
                 good.Save();
@@ -125,8 +121,7 @@ namespace Warehouse
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Good name cannot be null!!", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message);
             }
         }
     }
