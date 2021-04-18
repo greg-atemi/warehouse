@@ -50,8 +50,23 @@ namespace Warehouse
             {
                 try
                 {
-                    var good = Good.GetWithId(int.Parse(good_id.Text));
                     var cubeId = cube_id_transfer_to.Text.Split('.')[0];
+                    var formCubeId = int.Parse(cubeId);
+                    if (good.CubeId != formCubeId)
+                    {
+                        var cub = Cube.GetWithId(formCubeId);
+                        if (cub.Occupied)
+                        {
+                            throw new Exception("Cube occupied please select another cube");
+                        }
+
+                        cub.Occupied = true;
+                        var cub2 = Cube.GetWithId(good.CubeId);
+                        cub2.Occupied = false;
+                        cub.Update();
+                        cub2.Update();
+                        
+                    }
                     /*
                     var cubeId = cube_id_current.Text;
                     good.CubeId = int.Parse(cubeId);
@@ -89,6 +104,16 @@ namespace Warehouse
                 client_email.Text = good.ClientId;
                 recieved_date.Text = good.ReceivedDate.ToString();
                 description.Text = good.Description;
+
+                var cubePresent =cube_id_transfer_to.FindString(cube1.Id + ". " + cube1.Name);
+
+                if (cubePresent == -1) 
+                {
+                    cube_id_transfer_to.Items.Add(cube1.Id + ". " + cube1.Name);
+                }
+
+                Console.WriteLine(cubePresent);
+                cube_id_transfer_to.Text = cube1.Id + ". " + cube1.Name;
             }
             catch (Exception exception)
             {
