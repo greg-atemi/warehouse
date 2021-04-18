@@ -66,6 +66,22 @@ namespace Warehouse
                 try
                 {
                     var cubeId = cube_id.Text.Split('.')[0];
+                    var formCubeId = int.Parse(cubeId);
+                    if (good.CubeId != formCubeId)
+                    {
+                        var cub = Cube.GetWithId(formCubeId);
+                        if (cub.Occupied)
+                        {
+                            throw new Exception("Cube occupied please select another cube");
+                        }
+
+                        cub.Occupied = true;
+                        cub.Update();
+
+                        var cub2 = Cube.GetWithId(good.CubeId);
+                        cub2.Occupied = false;
+                        cub2.Update();
+                    }
                     good.Name = name.Text;
                     good.CubeId = int.Parse(cubeId);
                     good.ClientId = client_email.Text;
