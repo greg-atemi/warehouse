@@ -50,7 +50,6 @@ namespace Warehouse
             this.label7 = new System.Windows.Forms.Label();
             this.cube_id_transfer_to = new System.Windows.Forms.ComboBox();
             this.cube_id_current = new System.Windows.Forms.TextBox();
-            this.@catch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize) (this.Err)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,6 +212,7 @@ namespace Warehouse
             this.cube_id_transfer_to.Margin = new System.Windows.Forms.Padding(2);
             this.cube_id_transfer_to.Name = "cube_id_transfer_to";
             this.cube_id_transfer_to.Size = new System.Drawing.Size(171, 21);
+            this.cube_id_transfer_to.Sorted = true;
             this.cube_id_transfer_to.TabIndex = 46;
             // 
             // cube_id_current
@@ -223,19 +223,11 @@ namespace Warehouse
             this.cube_id_current.Size = new System.Drawing.Size(171, 20);
             this.cube_id_current.TabIndex = 47;
             // 
-            // catch
-            // 
-            this.@catch.Location = new System.Drawing.Point(375, 119);
-            this.@catch.Name = "catch";
-            this.@catch.Size = new System.Drawing.Size(72, 20);
-            this.@catch.TabIndex = 48;
-            // 
             // Good_update_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 383);
-            this.Controls.Add(this.@catch);
             this.Controls.Add(this.cube_id_current);
             this.Controls.Add(this.cube_id_transfer_to);
             this.Controls.Add(this.label7);
@@ -261,8 +253,6 @@ namespace Warehouse
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-
-        private System.Windows.Forms.TextBox @catch;
 
         private System.Windows.Forms.TextBox cube_id_current;
 
