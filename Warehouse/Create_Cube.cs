@@ -27,22 +27,23 @@ namespace Warehouse
 
         private void createcube_Click(object sender, EventArgs e)
         {
-
-            if (name.Text == string.Empty)
-                Err.SetError(name, "Name cannot be null!!");
-            else
-                Err.SetError(name, "");
-
             try
             {
+                if (name.Text == string.Empty)
+                {
+                    Err.SetError(name, "Name cannot be null!!");
+                    throw new Exception("Name cannot be null!!");
+                }
+                else
+                    Err.SetError(name, "");
                 var cube = new Cube(name.Text, false);
                 cube.Save();
-
+                name.Text = "";
                 MessageBox.Show("Cube created succesfully!");
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Please enter name");
+                MessageBox.Show(ex.Message);
             }
 
             

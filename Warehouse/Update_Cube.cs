@@ -17,8 +17,6 @@ namespace Warehouse
             InitializeComponent();
             btnBack.Click += new EventHandler(this.back);
         }
-
-       
         private void back(object sender, EventArgs e)
         {
             var form = new Main_Form();
@@ -48,11 +46,14 @@ namespace Warehouse
                 var cube = Cube.GetWithId(int.Parse(cube_id.Text));
                 cube.Name = name.Text;
                 cube.Update();
+                name.Text = "";
+                cube_id.Text = "";
+                
                 MessageBox.Show("Cube updated succesfully!");
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Please fill in the required fields");
+                MessageBox.Show(ex.Message);
             }
         }
 

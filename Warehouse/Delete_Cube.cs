@@ -27,19 +27,23 @@ namespace Warehouse
 
         private void delete_Click(object sender, EventArgs e)
         {
-            if (cube_id.Text == string.Empty)
-                Err.SetError(cube_id, "cube_id cannot be null!!");
-            else
-                Err.SetError(cube_id, "");
+            
             try
             {
+                if (cube_id.Text == string.Empty)
+                {
+                    Err.SetError(cube_id, "cube_id cannot be null!!");
+                    throw new Exception("cube_id cannot be null!!");
+                }
+                else
+                    Err.SetError(cube_id, "");
                 var cube = Cube.GetWithId(int.Parse(cube_id.Text));
                 cube.Delete();
                 MessageBox.Show("Cube deleted!");
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("please fill in the cube_id");
+                MessageBox.Show(ex.Message);
             }
 
         }
