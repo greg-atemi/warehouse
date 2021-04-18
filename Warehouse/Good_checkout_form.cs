@@ -32,7 +32,7 @@ namespace Warehouse
             var form = new Main_Form();
             this.Hide();
             form.Show();
-        }
+       }
 
         private void btn_release_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,6 @@ namespace Warehouse
             try
             {
                 good.ReleasedDate = released_date.Value;
-
                 var cube = Cube.GetWithId(good.CubeId);
                 cube.Occupied = false;
                 cube.Update();
@@ -64,7 +63,8 @@ namespace Warehouse
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("Good ID cannot be null!!", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
             
 

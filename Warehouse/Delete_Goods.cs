@@ -40,7 +40,8 @@ namespace Warehouse
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("Good name cannot be null!!", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
             
         }
